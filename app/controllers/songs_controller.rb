@@ -2,12 +2,19 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.json
   def index
-    @songs = Song.all
+    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @songs }
     end
+  end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @song = Song.find(params[:id])
+    @song.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back
   end
 
   def tracklist
@@ -27,6 +34,17 @@ class SongsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @song }
+    end
+  end
+
+  def promote
+    @song = Song.find(params[:id])
+      if current_user
+        User.delay.promote_request(current_user.id, song_url(@song))
+      end
+    respond_to do |format|
+      format.html { redirect_to @song, notice: 'Song was successfully promoted!' }
+      format.json { render json: @song, status: :created, location: @song }
     end
   end
 

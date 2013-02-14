@@ -1,8 +1,15 @@
 Party::Application.routes.draw do
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
+
 
   get 'songs/tracklist' => 'songs#tracklist'
   get 'songs/add' => 'songs#add'
-  resources :songs
+  resources :songs do
+    member { post :vote }
+    member { get :promote }
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

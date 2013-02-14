@@ -1,9 +1,13 @@
-<h1>Listing songs</h1>
+<h1>Request a song</h1>
 
 <% @songs.each do |song| %>
 
   <ul>
-    <li><%= link_to song.name, song %> , <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <li><%= link_to song.name, song %> , <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+  <% if current_user && !current_user.voted_for?(song) %>
+    <%= pluralize song.reputation_for(:votes).to_i, "vote" %>|
+    <%= link_to "up", vote_song_path(song, type: "up"), method: "post" %></li>
+  <% end %>
   </ul>
 
 <% end %>

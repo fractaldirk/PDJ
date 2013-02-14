@@ -5,23 +5,3 @@
   <%= tag :meta, property: "og:title", content: @song.name %>
   <%= tag :meta, property: "og:image", content: "https://fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" %>
 <% end %>
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @song.name %>
-</p>
-
-<p>
-  <b>Requester:</b>
-  <%= @song.requester %>
-</p>
-
-<p>
-  <b>Artist:</b>
-  <%= @song.artist %>
-</p>
-
-<%= link_to 'Promote', promote_song_path %>
-<%= link_to 'Edit', edit_song_path(@song) %> |
-<%= link_to 'Back', songs_path %>
