@@ -16,14 +16,15 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :requester %><br />
-    <%= f.text_field :requester %>
-  </div>
-  <div class="field">
     <%= f.label :artist %><br />
     <%= f.text_field :artist %>
   </div>
+
+  <div class="number_field">
+    <%= f.label :ref %><br/>
+    <%= f.number_field :ref, :value => 1 %>
+  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit, :name => "new_song" %>
   </div>
 <% end %>

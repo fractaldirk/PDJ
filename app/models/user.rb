@@ -9,4 +9,17 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def self.share_request(user_id, song_url)
+    user = User.find(user_id)
+    user.facebook.put_connections("me", "personaldj:list", liedje: song_url)
+  end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(oauth_token)
+    block_given? ? yield(@facebook) : @facebook
+  rescue Koala::Facebook::APIError => e
+    logger.info e.to_s
+    nil # or consider a custom null object
+  end
 end

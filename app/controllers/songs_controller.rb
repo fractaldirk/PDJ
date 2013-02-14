@@ -61,7 +61,16 @@ class SongsController < ApplicationController
     @song = Song.new(params[:song])
 
     respond_to do |format|
-      if @song.save
+
+      if params[:new_song]
+        @song.save
+        format.html { redirect_to @song, notice: 'Song was successfully created.' }
+        format.json { render json: @song, status: :created, location: @song }
+      elsif params[:request_song]
+        @song.save
+          if current_user
+            User.delay.share_request(current_user.id, song_url(@song))
+          end
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
         format.json { render json: @song, status: :created, location: @song }
       else

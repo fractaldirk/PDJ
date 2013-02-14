@@ -24,6 +24,6 @@
     <%= f.text_field :artist %>
   </div>
   <div class="actions">
-    <%= f.submit "Send request", :name => "request_song" %>
+    <%= f.submit "Request song", :name => "request_song" %>
   </div>
 <% end %>
