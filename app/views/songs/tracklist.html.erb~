@@ -1,0 +1,10 @@
+
+<%= link_to 'Add new song', "/songs/add" %>
+<hr />
+<% @songs.each do |song| %>
+  <% if song.ref == 1 %>
+    <ul>
+      <li><%= song.name %></li>
+    </ul>
+  <% end %>
+<% end %>

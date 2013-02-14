@@ -1,0 +1,13 @@
+<h1>Request a song</h1>
+
+<% @songs.each do |song| %>
+
+  <ul>
+    <li><%= link_to song.name, song %> , <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  </ul>
+
+<% end %>
+
+<br />
+
+<%= link_to 'New Song', new_song_path %>
