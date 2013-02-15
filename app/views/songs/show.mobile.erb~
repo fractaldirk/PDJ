@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <% content_for :head do %>
+          <%= tag :meta, property: "fb:app_id", content: "107458539438174" %>
+          <%= tag :meta, property: "og:type", content: "personaldj:liedje" %>
+          <%= tag :meta, property: "og:url", content: song_url(@song) %>
+          <%= tag :meta, property: "og:title", content: @song.name %>
+          <%= tag :meta, property: "og:image", content: "https://fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" %>
+        <% end %>
+        <title>
+        </title>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+        <link rel="stylesheet" href="my.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
+        </script>
+        <script src="my.js">
+        </script>
+        <!-- User-generated css -->
+        <style>
+        </style>
+        <!-- User-generated js -->
+        <script>
+            try {
+
+    $(function() {
+
+    });
+
+  } catch (error) {
+    console.error("Your javascript has an error: " + error);
+  }
+        </script>
+    </head>
+    <body>
+        <!-- Home -->
+        <div data-role="page" id="page1">
+            <div data-theme="a" data-role="header">
+                <%= link_to 'Back', songs_path, :class => "ui-btn-left", "data-role" => "button" %>
+                <%= link_to 'Promote', promote_song_path, :class => "ui-btn-right", "data-role" => "button" %>
+                <h3>
+                    Details
+                </h3>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textarea1">
+                            Song
+                        </label>
+                        <p>
+                        <%= @song.name %>
+                        </p>
+                    </fieldset>
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <label for="textarea2">
+                            Requested by
+                        </label>
+                        <p>
+                          <%= @song.requester %>
+                        </p>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

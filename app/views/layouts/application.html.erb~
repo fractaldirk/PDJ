@@ -9,14 +9,13 @@
   <%= yield :head %>
 </head>
 <body>
-  <div id="user_nav">
-    <% if current_user %>
-      Signed in as <strong><%= current_user.name %></strong>!
-      <%= link_to "Sign out", signout_path, id: "sign_out" %>
+<p>
+    <% if mobile_device? %>
+      <%= link_to "Full Site", :mobile => 0 %>
     <% else %>
-      <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+      <%= link_to "Mobile Site", :mobile => 1 %>
     <% end %>
-  </div>
+</p>
 
 <%= yield %>
 

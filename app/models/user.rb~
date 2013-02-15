@@ -18,9 +18,9 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.promote_request(user_id, songs_url)
+  def self.promote_request(user_id, song_url)
     user = User.find(user_id)
-    user.facebook.put_connections("me", "personaldj:promote", liedje: songs_url)
+    user.facebook.put_connections("me", "personaldj:promote", liedje: song_url)
   end
 
   def self.share_request(user_id, song_url)

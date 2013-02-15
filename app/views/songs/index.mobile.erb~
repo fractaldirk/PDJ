@@ -7,8 +7,6 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <title>
         </title>
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-        <link rel="stylesheet" href="my.css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
         </script>
         <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
@@ -39,21 +37,19 @@
                     Request a song ;)
                 </h3>
             </div>
-            <div data-role="content">
-                <ul data-role="listview" data-divider-theme="b" data-inset="true">
-                    <li data-role="list-divider" role="heading">
-                        Top requests
-                    </li>
-                  <% @songs.each do |song| %>
-                    <li data-theme="c">
-                        <%= link_to song.name, song %>
-                    </li>
-                  <% end %>
-                </ul>
-            </div>
+          <% @songs.each do |song| %>
+          <div data-theme="a" data-role="header">
+            <% if current_user && !current_user.voted_for?(song) %>
+              <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
+            <% end %>
+              <h4>
+                  <%= link_to truncate(song.name, :lenght => 25), song, "data-transition" => "slide" %> (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>)
+              </h4>
+          </div>
+          <% end %>
             <div data-theme="a" data-role="footer" data-position="fixed">
                 <h3>
-                    Footer
+                    footy
                 </h3>
             </div>
         </div>

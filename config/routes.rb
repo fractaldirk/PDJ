@@ -1,13 +1,15 @@
 Party::Application.routes.draw do
+  get "home/index"
+
   match 'auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/')
+  match "/auth/failure" => redirect("/")
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
 
   get 'songs/tracklist' => 'songs#tracklist'
   get 'songs/add' => 'songs#add'
   resources :songs do
-    member { post :vote }
+    member { get :vote }
     member { get :promote }
   end
 
@@ -60,7 +62,7 @@ Party::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'songs#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

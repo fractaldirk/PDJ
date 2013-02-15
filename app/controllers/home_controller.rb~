@@ -1,0 +1,5 @@
+class HomeController < ApplicationController
+  before_filter :prepare_for_mobile, :except => [:index]
+  def index
+  end
+end
