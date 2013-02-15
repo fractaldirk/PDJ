@@ -1,4 +1,4 @@
-<h1>Request a song</h1>
+<h1>Request a song2</h1>
 
 <% @songs.each do |song| %>
 
@@ -7,7 +7,8 @@
   <% if current_user && !current_user.voted_for?(song) %>
     <%= pluralize song.reputation_for(:votes).to_i, "vote" %>|
     <%= link_to "up", vote_song_path(song, type: "up"), method: "post" %></li>
-  <% end %>
+  <% end %>|
+  <%= link_to 'Promote', promote_song_path(song) %>
   </ul>
 
 <% end %>

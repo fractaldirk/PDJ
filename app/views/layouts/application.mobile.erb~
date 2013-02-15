@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>Personal DJ</title>
+    <%= stylesheet_link_tag "jqtouch.min.css", "theme.min.css" %>
+    <%= javascript_include_tag "jquery.1.3.2.min.js", "jqtouch.min.js" %>
+    <%= csrf_meta_tags %>
+    <%= yield :head %>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>

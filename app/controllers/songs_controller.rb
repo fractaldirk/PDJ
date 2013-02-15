@@ -5,8 +5,9 @@ class SongsController < ApplicationController
     @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # songlist.html.erb
       format.json { render json: @songs }
+      format.mobile # songlist.mobile.erb
     end
   end
 
@@ -23,6 +24,7 @@ class SongsController < ApplicationController
     respond_to do |format|
       format.html # songlist.html.erb
       format.json { render json: @songs }
+      format.mobile
     end
   end
 
@@ -34,6 +36,7 @@ class SongsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @song }
+      format.mobile
     end
   end
 
@@ -45,6 +48,7 @@ class SongsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @song, notice: 'Song was successfully promoted!' }
       format.json { render json: @song, status: :created, location: @song }
+      format.mobile
     end
   end
 
@@ -56,6 +60,7 @@ class SongsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @song }
+      format.mobile
     end
   end
 
@@ -65,6 +70,7 @@ class SongsController < ApplicationController
     respond_to do |format|
       format.html # add.html.erb
       format.json { render json: @song }
+      format.mobile
     end
   end
 
@@ -84,6 +90,7 @@ class SongsController < ApplicationController
         @song.save
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
         format.json { render json: @song, status: :created, location: @song }
+        format.mobile { redirect_to @song, notice: 'Song was successfully created.' }
       elsif params[:request_song]
         @song.save
           if current_user
@@ -91,9 +98,11 @@ class SongsController < ApplicationController
           end
         format.html { redirect_to @song, notice: 'Song was successfully created.' }
         format.json { render json: @song, status: :created, location: @song }
+        format.mobile { redirect_to @song, notice: 'Song was successfully created.' }
       else
         format.html { render action: "new" }
         format.json { render json: @song.errors, status: :unprocessable_entity }
+        format.mobile { render action: "new" }
       end
     end
   end
@@ -107,9 +116,11 @@ class SongsController < ApplicationController
       if @song.update_attributes(params[:song])
         format.html { redirect_to @song, notice: 'Song was successfully updated.' }
         format.json { head :no_content }
+        format.mobile { redirect_to @song, notice: 'Song was successfully updated.' }
       else
         format.html { render action: "edit" }
         format.json { render json: @song.errors, status: :unprocessable_entity }
+        format.mobile { render action: "edit" }
       end
     end
   end
@@ -123,6 +134,7 @@ class SongsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to songs_url }
       format.json { head :no_content }
+      format.mobile { redirect_to songs_url }
     end
   end
 end
