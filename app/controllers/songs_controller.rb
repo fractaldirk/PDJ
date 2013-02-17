@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_filter :prepare_for_mobile
+  before_filter :prepare_for_mobile, :except => [:create]
   # GET /songs
   # GET /songs.json
   def index
@@ -18,11 +18,20 @@ class SongsController < ApplicationController
     redirect_to songs_url
   end
 
+  def gettrack
+    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
+
+    respond_to do |format|
+      format.html # gettrack.html.erb
+      format.json { render json: @songs }
+    end
+  end
+
   def tracklist
     @songs = Song.all
 
     respond_to do |format|
-      format.html # songlist.html.erb
+      format.html # tracklist.html.erb
       format.json { render json: @songs }
     end
   end
@@ -53,11 +62,6 @@ class SongsController < ApplicationController
   # GET /songs/new.json
   def new
     @song = Song.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @song }
-    end
   end
 
   def add
@@ -74,29 +78,33 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
   end
 
+  def edit_gettrack
+    @song = Song.find(params[:id])
+  end
+
   # POST /songs
   # POST /songs.json
   def create
     @song = Song.new(params[:song])
 
-    respond_to do |format|
-
       if params[:new_song]
         @song.save
-        format.html { redirect_to @song, notice: 'Song was successfully created.' }
-        format.json { render json: @song, status: :created, location: @song }
+        redirect_to @song, notice: 'Song was successfully created.'
       elsif params[:request_song]
         @song.save
           if current_user
             User.delay.share_request(current_user.id, song_url(@song))
           end
-        format.html { redirect_to @song, notice: 'Song was successfully created.' }
-        format.json { render json: @song, status: :created, location: @song }
+          redirect_to @song, notice: 'Song was successfully created.'
+      elsif params[:request_song_mobile]
+        @song.save
+          if current_user
+            User.delay.share_request(current_user.id, song_url(@song))
+          end
+        redirect_to @song, notice: 'Song was successfully created.'
       else
-        format.html { render action: "new" }
-        format.json { render json: @song.errors, status: :unprocessable_entity }
+        render action: "new"
       end
-    end
   end
 
   # PUT /songs/1
@@ -105,7 +113,12 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
 
     respond_to do |format|
-      if @song.update_attributes(params[:song])
+      if params[:song_status]
+        @song.update_attributes(params[:song])
+        format.html { redirect_to "/songs/gettrack/", notice: 'Song was successfully updated.' }
+        format.json { head :no_content }
+      elsif params[:new_song]
+        @song.update_attributes(params[:song])
         format.html { redirect_to @song, notice: 'Song was successfully updated.' }
         format.json { head :no_content }
       else

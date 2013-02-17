@@ -1,0 +1,13 @@
+<h2>Manage songs</h2>
+
+<% @songs.each do |song| %>
+
+  <ul>
+    <li><%= link_to song.name, song %> , <%= link_to 'Edit', edit_gettrack_song_path(song) %><br/>
+  <% if current_user && !current_user.voted_for?(song) %>
+    <%= pluralize song.reputation_for(:votes).to_i, "vote" %>|
+    <%= link_to "up", vote_song_path(song, type: "up"), method: "post" %></li>
+  <% end %>
+  </ul>
+
+<% end %>

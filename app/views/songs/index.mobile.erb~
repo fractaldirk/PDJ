@@ -34,22 +34,24 @@
         <div data-role="page" id="page1">
             <div data-theme="b" data-role="header">
                 <h3>
-                    Request a song ;)
+                    <%= link_to 'Add a song', new_song_path, "type" => "button" %>
                 </h3>
             </div>
           <% @songs.each do |song| %>
-          <div data-theme="a" data-role="header">
-            <% if current_user && !current_user.voted_for?(song) %>
-              <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
+            <% unless song.status == 1 %>
+              <div data-theme="a" data-role="header">
+                <% if current_user && !current_user.voted_for?(song) %>
+                  <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
+                <% end %>
+                  <h4>
+                      <%= link_to truncate(song.name, :length => 25), song, "data-transition" => "slide" %> (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>)
+                  </h4>
+              </div>
             <% end %>
-              <h4>
-                  <%= link_to truncate(song.name, :lenght => 25), song, "data-transition" => "slide" %> (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>)
-              </h4>
-          </div>
           <% end %>
             <div data-theme="a" data-role="footer" data-position="fixed">
                 <h3>
-                    footy
+                    This is an IceFlag production
                 </h3>
             </div>
         </div>

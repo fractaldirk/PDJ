@@ -5,12 +5,13 @@ Party::Application.routes.draw do
   match "/auth/failure" => redirect("/")
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
-
+  get 'songs/gettrack' => 'songs#gettrack'
   get 'songs/tracklist' => 'songs#tracklist'
   get 'songs/add' => 'songs#add'
   resources :songs do
     member { get :vote }
     member { get :promote }
+    member { get :edit_gettrack}
   end
 
   # The priority is based upon order of creation:

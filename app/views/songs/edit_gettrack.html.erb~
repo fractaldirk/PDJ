@@ -12,17 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name, "Title" %><br />
-    <%= f.text_field :name, :placeholder => "Please share a song title of your choice"%>
+    <%= f.label :status %><br />
+    <%= f.select(:status, [["approved", "1"]], :prompt => "change status") %>
   </div>
-  <div class="hidden_field">
-    <%= f.hidden_field :requester, :value => current_user.name %>
+  <div class="field">
+    <%= f.label :requester %><br />
+    <%= f.text_field :requester %>
   </div>
   <div class="field">
     <%= f.label :artist %><br />
-    <%= f.text_field :artist, :placeholder => "Whoohoo!" %>
+    <%= f.text_field :artist %>
   </div>
   <div class="actions">
-    <%= f.submit "Send request", :name => "request_song" %>
+    <%= f.submit "Send request", :name => "song_status" %>
   </div>
 <% end %>
