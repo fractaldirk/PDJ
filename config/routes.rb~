@@ -11,6 +11,7 @@ Party::Application.routes.draw do
   resources :songs do
     member { get :vote }
     member { get :promote }
+    member { get :edit_gettrack}
   end
 
   # The priority is based upon order of creation:

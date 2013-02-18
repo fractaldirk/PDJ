@@ -1,0 +1,7 @@
+<%= form_for(@song) do |f| %>
+
+    <%= f.text_field :name, :placeholder => "Please share a song title of your choice"%>
+    <%= f.hidden_field :requester, :value => current_user.name %>
+    <%= f.text_field :artist, :placeholder => "Whoohoo!" %>
+    <%= f.submit "Send request", :name => "request_song" %>
+<% end %>

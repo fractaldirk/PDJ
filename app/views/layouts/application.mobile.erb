@@ -1,12 +1,20 @@
 <html>
   <head>
     <title>Personal DJ</title>
-    <%= stylesheet_link_tag "jquery.mobile-1.2.0", "mobile" %>
-    <%= javascript_include_tag "jquery.1.3.2.min", "jqtouch.min", "mobile" %>
-    <%= csrf_meta_tags %>
-    <%= yield :head %>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+      <%= stylesheet_link_tag "mobile" %>
+      <%= javascript_include_tag "mobile" %>
+      <%= csrf_meta_tags %>
+      <%= yield :head %>
   </head>
   <body>
     <%= yield %>
   </body>
 </html>
+
+    <head>
+
+    </head>

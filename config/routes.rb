@@ -9,7 +9,7 @@ Party::Application.routes.draw do
   get 'songs/tracklist' => 'songs#tracklist'
   get 'songs/add' => 'songs#add'
   resources :songs do
-    member { get :vote }
+    member { post :vote }
     member { get :promote }
     member { get :edit_gettrack}
   end

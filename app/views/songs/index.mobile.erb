@@ -1,57 +1,25 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <title>
-        </title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery.mobile/1.2.0/jquery.mobile-1.2.0.min.js">
-        </script>
-        <!-- User-generated css -->
-        <style>
-        </style>
-        <!-- User-generated js -->
-        <script>
-            try {
-
-    $(function() {
-
-    });
-
-  } catch (error) {
-    console.error("Your javascript has an error: " + error);
-  }
-        </script>
-    </head>
-    <body>
-        <!-- Home -->
-        <div data-role="page" id="page1">
-            <div data-theme="b" data-role="header">
-                <h3>
-                    <%= link_to 'Add a song', new_song_path, "type" => "button" %>
-                </h3>
-            </div>
-          <% @songs.each do |song| %>
-            <% unless song.status == 1 %>
-              <div data-theme="a" data-role="header">
-                <% if current_user && !current_user.voted_for?(song) %>
-                  <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
-                <% end %>
-                  <h4>
-                      <%= link_to truncate(song.name, :length => 25), song, "data-transition" => "slide" %> (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>)
-                  </h4>
-              </div>
-            <% end %>
-          <% end %>
-            <div data-theme="a" data-role="footer" data-position="fixed">
-                <h3>
-                    This is an IceFlag production
-                </h3>
-            </div>
-        </div>
-    </body>
-</html>
+<!-- Home -->
+<div data-role="page" id="page1">
+    <div data-theme="b" data-role="header">
+        <h3>
+            <%= link_to 'Add a song', new_song_path, "type" => "button" %>
+        </h3>
+    </div>
+  <% @songs.each do |song| %>
+    <% unless song.status == 1 %>
+      <div data-theme="a" data-role="header">
+        <% if current_user && !current_user.voted_for?(song) %>
+          <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
+        <% end %>
+          <h4>
+              <%= link_to truncate(song.name, :length => 25), song, "data-transition" => "slide" %> (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>)
+          </h4>
+      </div>
+    <% end %>
+  <% end %>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3>
+            This is an IceFlag production
+        </h3>
+    </div>
+</div>
