@@ -1,7 +1,7 @@
 <h1>Request a song</h1>
 
 <% @songs.each do |song| %>
-  <% if song.status == 1 %>
+  <% unless song.status == 1 %>
     <ul>
       <li><%= link_to song.name, song %> , <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
     <% if current_user && !current_user.voted_for?(song) %>

@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def link_to_submit(text)
-    link_to_function text, "$(this).closest('form').submit()"
+  def song_title
+    "#{@song.name} - #{@song.artist}"
   end
 end

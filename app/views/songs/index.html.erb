@@ -3,7 +3,7 @@
 <% @songs.each do |song| %>
   <% unless song.status == 1 %>
     <ul>
-      <li><%= link_to song.name, song %> , <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
+      <li><%= link_to song.song_title, song %> , <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
     <% if current_user && !current_user.voted_for?(song) %>
       <%= pluralize song.reputation_for(:votes).to_i, "vote" %>|
       <%= link_to "up", vote_song_path(song, type: "up"), method: "post" %></li>

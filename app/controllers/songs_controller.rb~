@@ -28,6 +28,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
       if current_user
         User.delay.promote_request(current_user.id, song_url(@song))
+        WallPost.delay.title(@song).deliver
       end
   end
 

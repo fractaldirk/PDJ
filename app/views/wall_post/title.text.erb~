@@ -1,0 +1,3 @@
+WallPost#title
+
+<%= @greeting %>, find me in app/views/app/views/wall_post/title.text.erb

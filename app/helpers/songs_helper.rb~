@@ -1,5 +1,3 @@
 module SongsHelper
-  def song_title
-    "#{@song.artist} - #{@song.name}"
-  end
+
 end

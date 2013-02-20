@@ -1,4 +1,6 @@
 Party::Application.routes.draw do
+  resources :paintings
+
   get "home/index"
 
   match 'auth/:provider/callback', to: 'sessions#create'

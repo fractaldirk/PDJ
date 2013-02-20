@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Painter:</b>
+  <%= @painting.painter %>
+</p>
+
+<p>
+  <b>Painter:</b>
+  <%= image_tag @painting.image_url(:thumb).to_s %>
+</p>
+
+
+<%= link_to 'Edit', edit_painting_path(@painting) %> |
+<%= link_to 'Back', paintings_path %>
