@@ -2,6 +2,8 @@ Party::Application.routes.draw do
   resources :paintings
 
   get "home/index"
+  get "home/dashboard" => 'home#dashboard'
+  get "home/latest_songs" => 'home#latest_songs'
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match "/auth/failure" => redirect("/")

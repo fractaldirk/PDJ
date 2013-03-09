@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :song
+  has_many :songs
 
   has_many :evaluations, class_name: "ReputationSystem::Evaluation", as: :source
 

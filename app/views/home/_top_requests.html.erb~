@@ -1,0 +1,16 @@
+<% @songs.each do |song| %>
+  <% unless song.status == 1 %>
+  <ol>
+    <li><%= song.song_title %><br/>
+        (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>) - (Req: <%= song.requester %>)
+    </li>
+  </ol>
+  <% end %>
+<% end %>
+
+<br/>
+<ol list-style-type= "upper-roman;">
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Coca Cola</li>
+</ol>

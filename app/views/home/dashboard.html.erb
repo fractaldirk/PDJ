@@ -1,0 +1,61 @@
+<head>
+ <script type="text/javascript">
+    window.onload = setupRefresh;
+
+    function setupRefresh() {
+        setInterval("refreshFrame();", 1000);
+    }
+    function refreshFrame() {
+       parent.right_frame.location.reload();
+    }
+</script>
+</head>
+
+<div id="wrapper">
+
+	<header id="header">
+	  <hr />
+	  <br/>
+		<center>
+		  <h1 style="color: #FF0000;">Personal DJ - Club name</h1>
+		</center>
+		<br/>
+		<hr />
+		</header><!-- #header-->
+
+	<section id="middle">
+
+		<div id="container">
+			<div id="content">
+        <center>
+          <h2>Activity livescreen</h2>
+        </center>
+			</div><!-- #content-->
+		</div><!-- #container-->
+
+		<aside id="sideLeft">
+		  <%= render "top_requests" %>
+		</aside><!-- #sideLeft -->
+
+		<aside id="sideRight">
+      <iframe src="<%= home_latest_songs_path %>" width="360" height="400"></iframe>
+		</aside><!-- #sideRight -->
+
+	</section><!-- #middle-->
+
+</div><!-- #wrapper -->
+
+<footer id="footer">
+  <center>
+    <h3 style="color: #FF0000;">Successful requests for the night:</h3>
+  </center>
+    <font size="5" face="Comic Sans MS">
+    <marquee bgcolor="#CC9933" style="font-weight: bold" height="70%">
+    <br/>
+    <% @accepted_songs.each do |song| %>
+  		---- <%= song.song_title %> (Req: <%= song.requester %>) ----
+		<% end %>
+    </marquee>
+    </font>
+
+</footer><!-- #footer -->

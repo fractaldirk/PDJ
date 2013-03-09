@@ -12,4 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+
+$(document).ready(
+ function() {
+  setInterval(function() {
+    $('.dynamic').load('/home/auto_refresh');
+  }, 2000);
+});

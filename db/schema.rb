@@ -85,11 +85,14 @@ ActiveRecord::Schema.define(:version => 20130219131957) do
     t.string   "name"
     t.string   "requester"
     t.string   "artist"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "ref"
     t.integer  "status"
   end
+
+  add_index "songs", ["user_id"], :name => "index_songs_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "provider"

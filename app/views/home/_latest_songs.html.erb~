@@ -1,0 +1,18 @@
+<div class="CSS_Table_Example" style="width:340px;">
+	<table >
+		<tr>
+			<td>
+				Latest requests
+			</td>
+		</tr>
+<% @latest_songs.each do |song| %>
+  <% unless song.status == 1 %>
+		<tr>
+			<td >
+				<%= song.song_title %>
+			</td>
+		</tr>
+  <% end %>
+<% end %>
+	</table>
+</div>
