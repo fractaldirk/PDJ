@@ -2,8 +2,8 @@
   <%= tag :meta, property: "fb:app_id", content: "107458539438174" %>
   <%= tag :meta, property: "og:type", content: "personaldj:liedje" %>
   <%= tag :meta, property: "og:url", content: song_url(@song) %>
-  <%= tag :meta, property: "og:title", content: @song.name %>
-  <%= tag :meta, property: "og:image", content: "https://fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" %>
+  <%= tag :meta, property: "og:title", content: @song.song_title %>
+  <%= tag :meta, property: "og:image", content: "http://personaldj2.herokuapp.com/assets/personaldj.png" %>
 <% end %>
 <p id="notice"><%= notice %></p>
 

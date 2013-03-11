@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   end
 
   def reload_top_songs
-    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :limit => "10")
+    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
     render :partial => "top_requests"
   end
   def reload
@@ -27,5 +27,8 @@ class HomeController < ApplicationController
   def activity
     @paintings = Painting.find(:all, order: "created_at desc", :limit => "5")
     render :partial => "activity"
+  end
+  def privacy
+
   end
 end

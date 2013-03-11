@@ -5,3 +5,4 @@
   <%= tag :meta, property: "og:title", content: @song.name %>
   <%= tag :meta, property: "og:image", content: "https://fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" %>
 <% end %>
+<p id="notice"><%= notice %></p>

@@ -8,6 +8,9 @@ Party::Application.routes.draw do
   get "home/marquee" => 'home#marquee'
   get "home/index"
   get "home/dashboard" => 'home#dashboard'
+  get "home/privacy" => 'home#privacy'
+  get "home/terms" => 'home#terms'
+  get "home/support" => 'home#support'
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match "/auth/failure" => redirect("/")

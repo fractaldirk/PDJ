@@ -28,4 +28,13 @@ class HomeController < ApplicationController
     @paintings = Painting.find(:all, order: "created_at desc", :limit => "5")
     render :partial => "activity"
   end
+  def privacy
+
+  end
+  def terms
+
+  end
+  def support
+
+  end
 end

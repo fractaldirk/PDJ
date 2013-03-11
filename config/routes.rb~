@@ -1,12 +1,14 @@
 Party::Application.routes.draw do
   resources :paintings
 
+  get "home/activity" => 'home#activity'
   get "home/reload" => 'home#reload'
   get "home/reloadlatestsongs" => 'home#reload_latest_songs'
   get "home/reloadtopsongs" => 'home#reload_top_songs'
   get "home/marquee" => 'home#marquee'
   get "home/index"
   get "home/dashboard" => 'home#dashboard'
+  get "home/privacy" => 'home#privacy'
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match "/auth/failure" => redirect("/")
