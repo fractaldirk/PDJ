@@ -2,6 +2,4 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-$(document).ready ->
-  setInterval (->
-    $(".dynamic").load "/home/auto_refresh" ), 3000
+setTimeout(alert, 3000)

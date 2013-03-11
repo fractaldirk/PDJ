@@ -8,7 +8,7 @@
     <% else %>
       <h2>Song: <%= painting.song_name %></h2>
       <%= image_tag("accepted.png", :size => "160x100") %><br/>
-      <h2>AKZEPTED</h2>
+      <h2>ACCEPTED</h2>
     <% end %>
   </div><hr />
 <% end %>

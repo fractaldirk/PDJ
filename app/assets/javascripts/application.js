@@ -12,3 +12,39 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require home
+
+$(document).ready(
+  function() {
+    setInterval(function() {
+      $('.accepted_songs').load('/home/reload');
+  }, 3000);
+});
+
+$(document).ready(
+  function() {
+    setInterval(function() {
+      $('.latest_songs').load('/home/reloadlatestsongs');
+  }, 3000);
+});
+
+$(document).ready(
+  function() {
+    setInterval(function() {
+      $('.top_songs').load('/home/reloadtopsongs');
+  }, 3000);
+});
+
+$(document).ready(
+  function() {
+    setInterval(function() {
+      $('.marquee').load('/home/marquee');
+  }, 3000);
+});
+
+$(document).ready(
+  function() {
+    setInterval(function() {
+      $('.activity').load('/home/activity');
+  }, 3000);
+});

@@ -29,6 +29,7 @@ class SongsController < ApplicationController
       if current_user
         User.delay.promote_request(current_user.id, song_url(@song))
         WallPost.delay.title(@song)
+        Painting.delay.create(painter: "#{current_user.name}", external_link: "/assets/pizza.jpg", promotion: true, song_name: @song.name, song_artist: @song.artist)
       end
   end
 
@@ -70,6 +71,9 @@ class SongsController < ApplicationController
 
       if params[:song_status]
         @song.update_attributes(params[:song])
+          if current_user
+            Painting.delay.create(promotion: false, song_name: @song.name)
+          end
         redirect_to "/songs/gettrack/", notice: 'Song was successfully updated.'
       elsif params[:new_song]
         @song.update_attributes(params[:song])

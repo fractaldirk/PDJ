@@ -1,5 +1,3 @@
-<h1>Listing paintings</h1>
-
 <% @paintings.each do |painting| %>
   <div id="paintings">
     <% if painting.promotion == true %>
@@ -12,7 +10,3 @@
     <% end %>
   </div><hr />
 <% end %>
-
-<br />
-
-<%= link_to 'New Painting', new_painting_path %>

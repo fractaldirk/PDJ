@@ -98,5 +98,7 @@ input {
 	min-width: 1000px;
 	height: 100px;
 	background: #300000;
-	position: relative;
+	position: fixed;
+	bottom: 0px;
+	left: 0px:
 }

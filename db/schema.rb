@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219131957) do
+ActiveRecord::Schema.define(:version => 20130311160942) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -32,9 +32,13 @@ ActiveRecord::Schema.define(:version => 20130219131957) do
   create_table "paintings", :force => true do |t|
     t.string   "painter"
     t.integer  "painter_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "image"
+    t.string   "external_link"
+    t.boolean  "promotion"
+    t.string   "song_name"
+    t.string   "song_artist"
   end
 
   create_table "rs_evaluations", :force => true do |t|

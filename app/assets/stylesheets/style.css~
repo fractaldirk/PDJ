@@ -75,7 +75,7 @@ input {
 	width: 350px;
 	margin-left: -100%;
 	position: relative;
-	background: #B5E3FF;
+	background: #FFFFFF;
 }
 
 
@@ -87,7 +87,7 @@ input {
 	width: 350px;
 	margin-left: -350px;
 	position: relative;
-	background: #FFACAA;
+	background: #FFFFFF;
 }
 
 

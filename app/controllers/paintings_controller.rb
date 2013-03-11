@@ -2,7 +2,7 @@ class PaintingsController < ApplicationController
   # GET /paintings
   # GET /paintings.json
   def index
-    @paintings = Painting.all
+    @paintings = Painting.find(:all, order: "created_at desc", :limit => "5")
 
     respond_to do |format|
       format.html # index.html.erb

@@ -2,12 +2,13 @@
 
 <p>
   <b>Painter:</b>
-  <%= @painting.painter %>
+  <%= image_tag @painting.painter %>
 </p>
 
 <p>
-  <b>Painter:</b>
-  <%= image_tag @painting.image_url.to_s %>
+  <b>Painting:</b>
+  <%= image_tag @painting.image_url(:thumb).to_s %>
+  <%= @painting.image %>
 </p>
 
 

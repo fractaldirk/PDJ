@@ -34,11 +34,20 @@
 		</div><!-- #container-->
 
 		<aside id="sideLeft">
-		  <%= render "top_requests" %>
+		  <div class="top_songs">
+		    <%= render "top_requests" %>
+		  </div>
 		</aside><!-- #sideLeft -->
 
 		<aside id="sideRight">
-      <iframe src="<%= home_latest_songs_path %>" width="360" height="400"></iframe>
+      <!iframe src="" width="360" height="400"></!iframe>
+      <div class="latest_songs">
+        <%= render "latest_songs" %>
+      </div>
+      <br/>
+      <div class="accepted_songs">
+        <%= render "accepted_songs" %>
+      </div>
 		</aside><!-- #sideRight -->
 
 	</section><!-- #middle-->
@@ -50,11 +59,10 @@
     <h3 style="color: #FF0000;">Successful requests for the night:</h3>
   </center>
     <font size="5" face="Comic Sans MS">
-    <marquee bgcolor="CC9933" style="font-weight: bold" height="70%">
-    <br/>
-    <% @accepted_songs.each do |song| %>
-  		---- <%= song.song_title %> (Req: <%= song.requester %>) ----
-		<% end %>
+    <marquee bgcolor="#CC9933" style="font-weight: bold" height="70%" scrolldelay ="100"  scrollamount= "5" loop="infinite">
+      <div class="marquee">
+        <%= render "marquee" %>
+      </div>
     </marquee>
     </font>
 
