@@ -1,5 +1,5 @@
 class WallPost < ActionMailer::Base
-  default from: "dirkie_reds@hotmail.com"
+  default from: "dirkgrandjean@gmail.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -10,5 +10,12 @@ class WallPost < ActionMailer::Base
     @song = song
 
     mail to: "fawn236peaked@m.facebook.com", subject: song.song_promoted
+  end
+
+  def accepted(song)
+    @song = song
+
+    attachments['accepted.png'] = File.read('#{Rails.root}/app/assets/images/accepted.png')
+    mail to: "fawn236peaked@m.facebook.com", subject: song.song_accepted
   end
 end

@@ -2,11 +2,9 @@
   <%= tag :meta, property: "fb:app_id", content: "107458539438174" %>
   <%= tag :meta, property: "og:type", content: "personaldj:liedje" %>
   <%= tag :meta, property: "og:url", content: song_url(@song) %>
-  <%= tag :meta, property: "og:title", content: @song.name %>
+  <%= tag :meta, property: "og:title", content: @song.song_name %>
   <%= tag :meta, property: "og:image", content: "https://fbstatic-a.akamaihd.net/images/devsite/attachment_blank.png" %>
 <% end %>
-<%= stylesheet_link_tag "mobile" %>
-<%= javascript_include_tag "mobile" %>
 <!-- Home -->
   <div data-role="page" id="page2">
       <div data-theme="a" data-role="header">

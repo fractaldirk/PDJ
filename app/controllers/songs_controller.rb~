@@ -71,7 +71,10 @@ class SongsController < ApplicationController
 
       if params[:song_status]
         @song.update_attributes(params[:song])
-        Painting.delay.create(promotion: false, song_name: @song.name)
+          if current_user
+            Painting.delay.create(promotion: false, song_name: @song.name)
+            WallPost.delay.accepted(@song)
+          end
         redirect_to "/songs/gettrack/", notice: 'Song was successfully updated.'
       elsif params[:new_song]
         @song.update_attributes(params[:song])

@@ -11,4 +11,11 @@ class WallPost < ActionMailer::Base
 
     mail to: "fawn236peaked@m.facebook.com", subject: song.song_promoted
   end
+
+  def accepted(song)
+    @song = song
+
+    attachments['accepted.png'] = File.read('#{Rails.root}/app/assets/images/accepted.png')
+    mail to: "fawn236peaked@m.facebook.com", subject: song.song_accepted
+  end
 end

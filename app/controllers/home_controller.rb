@@ -2,7 +2,7 @@ class HomeController < ApplicationController
   def index
   end
   def dashboard
-    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :limit => "10")
+    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
     @accepted_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "3")
     @latest_songs = Song.find_with_reputation(:votes, :all, order: "created_at desc", :limit => "7")
     @paintings = Painting.find(:all, order: "created_at desc", :limit => "5")
@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   end
 
   def reload_top_songs
-    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :limit => "10")
+    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
     render :partial => "top_requests"
   end
   def reload

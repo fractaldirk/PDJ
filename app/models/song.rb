@@ -11,4 +11,8 @@ class Song < ActiveRecord::Base
   def song_promoted
     "VOTE NOW FOR: #{song_title} requested by #{requester}"
   end
+
+  def song_accepted
+    "Like a boss, #{requester}! Let's play #{song_title}"
+  end
 end
