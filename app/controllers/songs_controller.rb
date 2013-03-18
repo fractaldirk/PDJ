@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
-  before_filter :prepare_for_mobile, :except => [:new, :create]
+  before_filter :prepare_for_mobile, :except => [:new, :create, :gettrack, :edit_gettrack,
+  :update]
 
   def index
     @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
@@ -75,10 +76,10 @@ class SongsController < ApplicationController
             Painting.delay.create(promotion: false, song_name: @song.name)
             WallPost.delay.accepted(@song)
           end
-        redirect_to "/songs/gettrack/", notice: 'Song was successfully updated.'
+        redirect_to songs_gettrack_path(:format => :mobile)
       elsif params[:new_song]
         @song.update_attributes(params[:song])
-        redirect_to @song, notice: 'Song was successfully updated.'
+        redirect_to @song
       else
         render action: "edit"
       end

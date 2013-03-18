@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   def index
+    unless current_user.nil?
+      redirect_to songs_path
+    end
   end
   def dashboard
     @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
