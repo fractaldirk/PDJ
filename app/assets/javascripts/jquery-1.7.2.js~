@@ -7545,7 +7545,7 @@ jQuery.extend({
 			statusCode = undefined;
 
 			if ( fireGlobals ) {
-				globalEventContext.trigger( "ajax" + ( isSuccess ? "Success" : "Error" ),
+				globalEventContext.trigger( "ajax" + ( isSuccess ? "Success" : "Yolo" ),
 						[ jqXHR, s, isSuccess ? success : error ] );
 			}
 
