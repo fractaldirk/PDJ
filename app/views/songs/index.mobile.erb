@@ -1,6 +1,8 @@
 <!-- Home -->
 <div data-role="page" id="page1">
     <div data-theme="b" data-role="header">
+          <%= link_to 'New Request', new_song_path, :class => "ui-btn-left", "data-role" => "button" %>
+          <%= link_to 'Login', "/auth/facebook", id: "sign_in", :class => "ui-btn-right", "data-role" => "button" %>
         <h3>
             <%= link_to 'Add a song', new_song_path, "type" => "button" %>
         </h3>
