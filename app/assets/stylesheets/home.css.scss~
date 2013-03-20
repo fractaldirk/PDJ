@@ -3,14 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #loginpic {
-    background-color: white;
-
-     position:absolute;
-     width:300px;
-     height:300px;
-     z-index:15;
-     top:50%;
-     left:50%;
-     margin:-150px 0 0 -150px;
-     background:red;
+   position:absolute;
+   width:300px;
+   height:300px;
+   z-index:15;
+   top:50%;
+   left:50%;
+   margin:-150px 0 0 -150px;
+   background:red;
 }
