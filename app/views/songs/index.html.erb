@@ -1,18 +1,1 @@
-<h1>Request a song</h1>
-
-<% @songs.each do |song| %>
-  <% unless song.status == 1 %>
-    <ul>
-      <li><%= link_to song.song_title, song %> , <%= link_to 'Destroy', song, method: :delete, data: { confirm: 'Are you sure?' } %><br/>
-    <%= pluralize song.reputation_for(:votes).to_i, "vote" %>|
-    <% if current_user && !current_user.voted_for?(song) %>
-      <%= link_to "up", vote_song_path(song, type: "up"), method: "post" %></li>
-    <% end %>|
-    <%= link_to 'Promote', promote_song_path(song) %>
-    </ul>
-  <% end %>
-<% end %>
-
-<br />
-
-<%= link_to 'New Song', new_song_path %>
+<h3><em>Sorry mate, this app is for mobile devices only.</em></h3>
