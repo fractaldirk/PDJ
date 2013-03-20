@@ -1,9 +1,10 @@
 <!-- Home -->
 <div data-role="page" id="page1">
     <div data-theme="b" data-role="header">
-        <h3>
-            <%= link_to 'Add a song', new_song_path, "type" => "button" %>
-        </h3>
+          <%= link_to 'New Request', new_song_path, :class => "ui-btn-left", "data-role" => "button" %>
+          <% unless current_user %>
+          <%= link_to 'Login', "/auth/facebook", id: "sign_in", :class => "ui-btn-right", "data-role" => "button" %>
+          <% end %>
     </div>
   <% @songs.each do |song| %>
     <% unless song.status == 1 %>
