@@ -1,5 +1,5 @@
 class SongsController < ApplicationController
-  before_filter :prepare_for_mobile, :except => [:new, :create, :gettrack, :edit_gettrack,
+  before_filter :prepare_for_mobile, :except => [:new, :create, :edit_gettrack,
   :update]
 
   def index

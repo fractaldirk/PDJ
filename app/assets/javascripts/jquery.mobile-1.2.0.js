@@ -73,7 +73,7 @@
 		defaultDialogTransition: "pop",
 
 		// Error response message - appears when an Ajax page request fails
-		pageLoadErrorMessage: "Yolo Loading!",
+		pageLoadErrorMessage: "Yolo!",
 
 		// For error messages, which theme does the box uses?
 		pageLoadErrorMessageTheme: "e",
