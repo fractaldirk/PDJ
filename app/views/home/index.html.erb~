@@ -4,6 +4,6 @@
       <%= link_to 'Go to App!', songs_path %> |
       <%= link_to "Sign out", signout_path, id: "sign_out" %>
     <% else %>
-
+      <%= link_to image_tag('DJ.png'), "/auth/facebook", id: "sign_in" %>
     <% end %>
   </div>

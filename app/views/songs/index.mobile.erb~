@@ -1,11 +1,9 @@
 <!-- Home -->
 <div data-role="page" id="page1">
     <div data-theme="b" data-role="header">
-          <%= link_to 'New Request', new_song_path, :class => "ui-btn-left", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "left" %>
-          <% unless current_user %>
-            <%= link_to 'Login', "/auth/facebook", id: "sign_in", :class => "ui-btn-right", "data-role" => "button" %>
-          <% end %>
+          <%= link_to 'New Request', new_song_path, :class => "ui-btn-right", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "left" %>
         <h3>
+          <em>Jukebox</em>
         </h3>
     </div>
   <% @songs.each do |song| %>
