@@ -11,7 +11,7 @@
     <% unless song.status == 1 %>
       <div data-theme="a" data-role="header">
           <h4>
-              <%= link_to song.song_title, edit_gettrack_song_path(song) %> (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>)
+            (<%= song.reputation_for(:votes).to_i %>) <%= link_to truncate(song.song_title, :length => 30), song, "data-transition" => "slide" %>
           </h4>
       </div>
     <% end %>
