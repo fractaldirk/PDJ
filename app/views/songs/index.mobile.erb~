@@ -13,7 +13,7 @@
           <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
         <% end %>
           <h4>
-              <%= link_to truncate(song.song_title, :length => 25), song, "data-transition" => "slide" %> (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>)
+              <%= link_to truncate(song.song_title, :length => 30), song, "data-transition" => "slide" %> (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>)
           </h4>
       </div>
     <% end %>
