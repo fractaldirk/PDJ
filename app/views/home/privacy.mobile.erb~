@@ -1,8 +1,9 @@
 <!-- Privacy -->
 <div data-role="page" id="page7">
     <div data-theme="a" data-role="header">
+        <%= link_to 'Back', home_about_path, "data-role" => "button", :class => "ui-btn-right" %>
         <h3>
-            Privacy Statement Personal DJ
+            About
         </h3>
     </div>
     <div data-role="content">
