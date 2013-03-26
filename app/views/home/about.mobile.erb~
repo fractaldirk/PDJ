@@ -1,0 +1,35 @@
+<!-- About -->
+<div data-role="page" id="page1">
+    <div data-theme="b" data-role="header">
+        <a data-role="button" href="#page1" class="ui-btn-left">
+            <%= link_to 'Back', songs_path %>
+        </a>
+        <h3>
+            About
+        </h3>
+        <ul data-role="listview" data-divider-theme="b" data-inset="true">
+            <li data-theme="c">
+                <a href="/home/privacy/" data-transition="slide">
+                    Privacy Policy
+                </a>
+            </li>
+            <li data-theme="c">
+                <a href="#page1" data-transition="slide">
+                    Terms of Use
+                </a>
+            </li>
+            <li data-theme="c">
+                <a href="#page1" data-transition="slide">
+                    About (Club Name)
+                </a>
+            </li>
+            <li data-theme="c">
+                <a href="#page1" data-transition="slide">
+                    About Personal DJ
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div data-role="content">
+    </div>
+</div>

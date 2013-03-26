@@ -1,0 +1,10 @@
+<!-- Home -->
+<div data-role="page" id="page7">
+    <div data-theme="a" data-role="header">
+        <h3>
+            Test
+        </h3>
+    </div>
+    <div data-role="content">
+    </div>
+</div>

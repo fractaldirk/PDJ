@@ -1,4 +1,7 @@
 class HomeController < ApplicationController
+  before_filter :prepare_for_mobile, :except => [:index, :dashboard, :reload_latest_songs,
+  :reload_top_songs, :reload, :marquee, :activity]
+
   def index
     unless current_user.nil?
       redirect_to songs_path
@@ -38,6 +41,12 @@ class HomeController < ApplicationController
 
   end
   def support
+
+  end
+  def login_helper
+
+  end
+  def about
 
   end
 end

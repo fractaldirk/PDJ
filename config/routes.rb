@@ -11,6 +11,8 @@ Party::Application.routes.draw do
   get "home/privacy" => 'home#privacy'
   get "home/terms" => 'home#terms'
   get "home/support" => 'home#support'
+  get "home/help" => 'home#login_helper'
+  get "home/about" => 'home#about'
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match "/auth/failure" => redirect("/")
