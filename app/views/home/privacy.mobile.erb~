@@ -1,10 +1,11 @@
-<!-- Home -->
+<!-- Privacy -->
 <div data-role="page" id="page7">
     <div data-theme="a" data-role="header">
         <h3>
-            Test
+            Privacy Statement Personal DJ
         </h3>
     </div>
     <div data-role="content">
+      <%= render "privacy_content" %>
     </div>
 </div>

@@ -1,11 +1,12 @@
 <!-- About -->
 <div data-role="page" id="page8">
     <div data-theme="b" data-role="header">
-        <a data-role="button" href="#page1" class="ui-btn-left">
-            <%= link_to 'Back', songs_path %>
-        </a>
+        <%= link_to 'Back', songs_path, "data-role" => "button", :class => "ui-btn-left" %>
         <h3>
-            About
+            <center>
+                About
+            </center>
+
         </h3>
         <ul data-role="listview" data-divider-theme="b" data-inset="true">
             <li data-theme="c">
