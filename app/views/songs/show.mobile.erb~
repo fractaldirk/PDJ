@@ -23,7 +23,7 @@
                       Song
                   </label>
                   <p>
-                  <%= @song.song_name %>
+                  <%= @song.song_title %>
                   </p>
               </fieldset>
           </div>
@@ -33,7 +33,7 @@
                       Requested by
                   </label>
                   <p>
-                    <%= @song.requester %>
+                    <%= @song.requester %> (<%= @song.inactives %>) (<%= @song.reputation_for(:votes).to_i %>)
                   </p>
               </fieldset>
           </div>

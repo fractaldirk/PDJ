@@ -17,6 +17,7 @@
   </div>
   <div class="hidden_field">
     <%= f.hidden_field :requester, :value => current_user.name %>
+    <%= f.hidden_field :status, :value => 2 %>
   </div>
   <div class="field">
     <%= f.label :artist %><br />

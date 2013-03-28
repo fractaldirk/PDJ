@@ -1,26 +1,29 @@
 <!-- Home -->
 <div data-role="page" id="page1">
-    <div data-theme="b" data-role="header">
+    <div data-theme="b" data-role="header" data-position="fixed">
           <%= link_to 'New Request', new_song_path, :class => "ui-btn-right", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "left" %>
         <h3>
-          <em>Jukebox</em>
+          <em>Jukebox (<%= current_user.reputation_for(:votes).to_i %>)</em>
         </h3>
     </div>
-  <% @songs.each do |song| %>
+  <% @top_songs.each do |song| %>
     <% unless song.status == 1 %>
-      <div data-theme="a" data-role="header">
-        <% if current_user && !current_user.voted_for?(song) %>
-          <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
-        <% end %>
-          <h4>
-              <%= link_to truncate(song.song_title, :length => 30), song, "data-transition" => "slide" %> (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>)
-          </h4>
-      </div>
+      <% unless ((song.inactive == true) && (song.reputation_for(:votes).to_i <= 2)) %>
+          <div data-theme="a" data-role="header">
+            <% if current_user && !current_user.voted_for?(song) %>
+              <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
+            <% end %>
+              <h4>
+                  (<%= song.reputation_for(:votes).to_i %>) <%= link_to truncate(song.song_title, :length => 30), song, "data-transition" => "slide" %>
+              </h4>
+          </div>
+      <% end %>
     <% end %>
   <% end %>
-    <div data-theme="a" data-role="footer" data-position="fixed">
-        <h3>
-            This is an IceFlag production
-        </h3>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <a href="/home/about/" data-transition="slide" class="ui-btn-right">
+            Find out more
+        </a>
+        <h3><em>This is an IceFlag production</em></h3>
     </div>
 </div>

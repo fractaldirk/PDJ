@@ -1,10 +1,8 @@
 class User < ActiveRecord::Base
-  attr_accessible :song
+  attr_accessible :song, :points, :user_name, :user_fb
   has_many :songs
 
   has_many :evaluations, class_name: "ReputationSystem::Evaluation", as: :source
-
-  has_reputation :user_votes, source: {reputation: :votes, of: :songs}, aggregated_by: :sum
 
   def voted_for?(song)
     evaluations.where(target_type: song.class, target_id: song.id).present?

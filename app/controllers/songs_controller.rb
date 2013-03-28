@@ -3,7 +3,7 @@ class SongsController < ApplicationController
   :update]
 
   def index
-    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
+    @top_songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
   end
 
   def vote
@@ -87,7 +87,11 @@ class SongsController < ApplicationController
 
   def destroy
     @song = Song.find(params[:id])
-    @song.destroy
+    if @song.destroy
+      redirect_to songs_gettrack_path(:format => :mobile)
+    else
+      render action: "gettrack"
+    end
   end
 
 private

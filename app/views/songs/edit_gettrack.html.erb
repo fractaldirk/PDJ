@@ -11,11 +11,17 @@
     </div>
   <% end %>
 
+    <%= f.hidden_field :points, :value => @song.reputation_for(:votes).to_i %>
+    <%= f.hidden_field :user_fb, :value => current_user.uid %>
+    <%= f.hidden_field :user_name, :value => current_user.name %>
+
   <div class="field">
     <%= f.label :status %><br />
-    <%= f.select(:status, [["approved", "1"]], :prompt => "change status") %>
+    <%= f.select(:status, [["approved", "1"]]) %>
   </div>
   <div class="actions">
-    <%= f.submit "Send request", :name => "song_status" %>
+    <%= f.submit "Approve song", :name => "song_status" %>
   </div>
 <% end %>
+
+<%= link_to 'Back', songs_gettrack_path %>

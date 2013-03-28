@@ -1,7 +1,34 @@
 <%= form_for(@song) do |f| %>
+  <div data-role="page" id="page3">
+      <div data-theme="a" data-role="header">
+        <%= link_to 'Back', songs_path, :class => "ui-btn-left", "data-role" => "button" %>
+          <h3>
+              <center>
+                Share :)
+              </center>
 
-    <%= f.text_field :name, :placeholder => "Please share a song title of your choice"%>
-    <%= f.hidden_field :requester, :value => current_user.name %>
-    <%= f.text_field :artist, :placeholder => "Whoohoo!" %>
-    <%= f.submit "Send request", :name => "request_song" %>
+          </h3>
+      </div>
+      <div data-role="content">
+          <div data-role="fieldcontain">
+              <fieldset data-role="controlgroup">
+                  <label for="textinput1">
+                      Title
+                  </label>
+                      <%= f.text_field :name %>
+              </fieldset>
+          </div>
+          <div data-role="fieldcontain">
+              <fieldset data-role="controlgroup">
+                  <label for="textinput2">
+                      Artist
+                  </label>
+                  <%= f.hidden_field :requester, :value => current_user.name %>
+                  <%= f.hidden_field :status, :value => 2 %>
+                  <%= f.text_field :artist %>
+              </fieldset>
+          </div>
+          <%= f.submit "create a song", :name => "request_song" %>
+      </div>
+  </div>
 <% end %>

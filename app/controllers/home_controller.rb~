@@ -35,7 +35,10 @@ class HomeController < ApplicationController
     render :partial => "activity"
   end
   def privacy
-
+    @songs = Song.find(:all)
+    @users = User.find(:all)
+    @points = Song.find(:all, :group =>  'user_name')
+    @pizza = Song.sum(:points, :group => 'user_name')
   end
   def terms
 
@@ -48,5 +51,12 @@ class HomeController < ApplicationController
   end
   def about
 
+  end
+
+private
+
+  def prepare_for_mobile
+    session[:mobile_param] = params[:mobile] if params[:mobile]
+    request.format = :mobile if mobile_device?
   end
 end

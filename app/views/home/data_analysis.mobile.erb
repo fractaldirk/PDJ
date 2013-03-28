@@ -1,3 +1,7 @@
+<!-- Put in your controller the following piece of code:
+     @songs = Song.find(:all)
+  -->
+
 <!-- Total accepted songs per user -->
 <!-- <p><%= Song.count(:all, :group =>  'user_name') %></p> -->
 
@@ -45,8 +49,3 @@
     Total of number of songs requested sorted by requester
     <p><%= Song.count(:group => :requester) %></p>
   -->
-
-
-<p><%= Song.count(:from => :users) %></p>
-<p><%= Song.count(:include => :points) %></p>
-<p><%= User.count(:joins => "LEFT JOIN songs on songs.user_fb = users.uid") %></p>

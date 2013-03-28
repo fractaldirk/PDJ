@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311160942) do
+ActiveRecord::Schema.define(:version => 20130328162819) do
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0
@@ -94,6 +94,9 @@ ActiveRecord::Schema.define(:version => 20130311160942) do
     t.datetime "updated_at", :null => false
     t.integer  "ref"
     t.integer  "status"
+    t.integer  "points"
+    t.string   "user_name"
+    t.integer  "user_fb"
   end
 
   add_index "songs", ["user_id"], :name => "index_songs_on_user_id"
