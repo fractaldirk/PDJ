@@ -41,7 +41,6 @@
 		</aside><!-- #sideLeft -->
 
 		<aside id="sideRight">
-      <!iframe src="" width="360" height="400"></!iframe>
       <div class="latest_songs">
         <%= render "latest_songs" %>
       </div>
@@ -59,45 +58,4 @@
     <h3>This is an IceFlag production (?)</h3>
   </center>
 </footer><!-- #footer -->
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
 </div>

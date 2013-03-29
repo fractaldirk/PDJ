@@ -96,8 +96,8 @@ input {
 -----------------------------------------------------------------------------*/
 #footer {
 	margin: -100px auto 0;
-	min-width: 1000px;
-	height: 25px;
+	min-width: 1400px;
+	height: 40px;
 	background: #300000;
 	position: fixed;
 	bottom: 0px;
