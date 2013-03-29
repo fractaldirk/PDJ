@@ -1,4 +1,5 @@
 <br/>
-<% @accepted_songs.each do |song| %>
-  - (<%= song.song_title %> by <%= song.requester %>)
+<% @marquee_songs.each do |song| %>
+  - (<%= song.song_title %>)
 <% end %>
+<br/>

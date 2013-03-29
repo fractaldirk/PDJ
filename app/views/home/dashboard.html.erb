@@ -1,25 +1,22 @@
-<head>
- <script type="text/javascript">
-    window.onload = setupRefresh;
+<div class="dashboard">
 
-    function setupRefresh() {
-        setInterval("refreshFrame();", 1000);
-    }
-    function refreshFrame() {
-       parent.right_frame.location.reload();
-    }
-</script>
-</head>
+  <div id="clubname">
+    <center>
+      <h1>Luxor Live</h1>
+    </center>
+  </div>
 
 <div id="wrapper">
 
 	<header id="header">
 	  <hr />
-	  <br/>
-		<center>
-		  <h1 style="color: #FF0000;">Personal DJ - Club name</h1>
-		</center>
-		<br/>
+    <font size="5" face="Comic Sans MS">
+    <marquee bgcolor="none" style="font-weight: bold" height="70%" scrolldelay ="100"  scrollamount= "5" loop="infinite">
+      <div class="marquee">
+        <%= render "marquee" %>
+      </div>
+    </marquee>
+    </font>
 		<hr />
 		</header><!-- #header-->
 
@@ -28,7 +25,7 @@
 		<div id="container">
 			<div id="content">
         <center>
-          <h2>Activity livescreen</h2>
+          <h2><em>activity</em></h2>
         </center>
         <div class="activity">
           <br/>
@@ -44,11 +41,9 @@
 		</aside><!-- #sideLeft -->
 
 		<aside id="sideRight">
-      <!iframe src="" width="360" height="400"></!iframe>
       <div class="latest_songs">
         <%= render "latest_songs" %>
       </div>
-      <br/>
       <div class="accepted_songs">
         <%= render "accepted_songs" %>
       </div>
@@ -60,14 +55,48 @@
 
 <footer id="footer">
   <center>
-    <h3 style="color: #FF0000;">Successful requests for the night:</h3>
+    <h3>This is an IceFlag production (?)</h3>
   </center>
-    <font size="5" face="Comic Sans MS">
-    <marquee bgcolor="#CC9933" style="font-weight: bold" height="70%" scrolldelay ="100"  scrollamount= "5" loop="infinite">
-      <div class="marquee">
-        <%= render "marquee" %>
-      </div>
-    </marquee>
-    </font>
-
 </footer><!-- #footer -->
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</div>

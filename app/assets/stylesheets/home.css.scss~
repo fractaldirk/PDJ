@@ -10,5 +10,41 @@
    top:50%;
    left:50%;
    margin:-150px 0 0 -150px;
-   background:red;
+   background:white;
+}
+
+.dashboard {
+  background: url('background.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	h2 {
+	  color: black;
+	}
+}
+
+.latest_requests {
+  background-color: #003366;
+}
+
+.accepted_songs {
+  background-color: #006699;
+}
+
+.top_requests {
+  background-color: #003300;
+  height: 250px;
+}
+
+#accepted {
+  width: 80%;
+  height: 80%;
+}
+#clubname {
+  h1 {
+    color: green;
+  }
+  position: relative;
+  top: 80px;
 }

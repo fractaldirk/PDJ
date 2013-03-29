@@ -1,16 +1,19 @@
+<div class="CSS_Table_Example" style="width:350px;">
+	<table >
+		<tr>
+			<td>
+				Top Requests
+			</td>
+		</tr>
 <% @songs.each do |song| %>
   <% unless song.status == 1 %>
-  <ol>
-    <li><%= song.song_title %><br/>
-        (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>) - (Req: <%= song.requester %>)
-    </li>
-  </ol>
+		<tr>
+		  <td>
+		  <%= song.song_title %><br/>
+      (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>) - (Req: <%= song.requester %>)
+      </td>
+		</tr>
   <% end %>
 <% end %>
-
-<br/>
-<ol list-style-type= "upper-roman;">
-  <li>Coffee</li>
-  <li>Tea</li>
-  <li>Coca Cola</li>
-</ol>
+  </table>
+</div>

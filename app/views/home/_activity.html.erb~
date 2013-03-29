@@ -4,9 +4,14 @@
       <p><%= painting.painter %> just <strong>promoted</strong> the song:</p>
       <p><h2><%= painting.song_name %> - <%= painting.song_artist %></h2></p>
     <% else %>
-      <h2>Song: <%= painting.song_name %></h2>
-      <%= image_tag("accepted.png", :size => "160x100") %><br/>
-      <h2>AKZEPTED</h2>
+      <div id="accepted">
+        <h2><em><%= painting.song_name %></em></h2>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h2>AKZEPTED</h2>
+      </div>
     <% end %>
   </div><hr />
 <% end %>

@@ -10,6 +10,7 @@ class HomeController < ApplicationController
   def dashboard
     @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
     @accepted_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "3")
+    @marquee_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "2")
     @latest_songs = Song.find_with_reputation(:votes, :all, order: "created_at desc", :limit => "7")
     @paintings = Painting.find(:all, order: "created_at desc", :limit => "5")
   end
@@ -27,7 +28,7 @@ class HomeController < ApplicationController
     render :partial => "accepted_songs"
   end
   def marquee
-    @accepted_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "3")
+    @accepted_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "2")
     render :partial => "marquee"
   end
   def activity

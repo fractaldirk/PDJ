@@ -12,6 +12,7 @@
 /* Swatches */
 /* A
 -----------------------------------------------------------------------------------------------------------*/
+
 .ui-bar-a {
 	border: 1px solid 		#333 /*{a-bar-border}*/;
 	background: 			#111 /*{a-bar-background-color}*/;
@@ -1152,7 +1153,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 .ui-footer .ui-btn-right { right: 5px; }
 .ui-footer .ui-btn-icon-notext,
 .ui-header .ui-btn-icon-notext { top: 6px; }
-.ui-header .ui-title, .ui-footer .ui-title { min-height: 1.1em; text-align: right; font-size: 16px; display: block; margin: .6em 2% .8em; padding: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; outline: 0 !important; }
+.ui-header .ui-title, .ui-footer .ui-title { min-height: 1.1em; text-align: left; font-size: 16px; display: block; margin: .6em 1% .8em; padding: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; outline: 0 !important; }
 .ui-footer .ui-title { margin: .6em 15px .8em; }
 /*content area*/
 .ui-content { border-width: 0; overflow: visible; overflow-x: hidden; padding: 15px; }

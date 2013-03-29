@@ -1,22 +1,25 @@
-<div class="dashboard">
+<head>
+ <script type="text/javascript">
+    window.onload = setupRefresh;
 
-  <div id="clubname">
-    <center>
-      <h1>Luxor Live</h1>
-    </center>
-  </div>
+    function setupRefresh() {
+        setInterval("refreshFrame();", 1000);
+    }
+    function refreshFrame() {
+       parent.right_frame.location.reload();
+    }
+</script>
+</head>
 
 <div id="wrapper">
 
 	<header id="header">
 	  <hr />
-    <font size="5" face="Comic Sans MS">
-    <marquee bgcolor="none" style="font-weight: bold" height="70%" scrolldelay ="100"  scrollamount= "5" loop="infinite">
-      <div class="marquee">
-        <%= render "marquee" %>
-      </div>
-    </marquee>
-    </font>
+	  <br/>
+		<center>
+		  <h1 style="color: #FF0000;">Personal DJ - Club name</h1>
+		</center>
+		<br/>
 		<hr />
 		</header><!-- #header-->
 
@@ -25,7 +28,7 @@
 		<div id="container">
 			<div id="content">
         <center>
-          <h2><em>activity</em></h2>
+          <h2>Activity livescreen</h2>
         </center>
         <div class="activity">
           <br/>
@@ -45,6 +48,7 @@
       <div class="latest_songs">
         <%= render "latest_songs" %>
       </div>
+      <br/>
       <div class="accepted_songs">
         <%= render "accepted_songs" %>
       </div>
@@ -56,48 +60,14 @@
 
 <footer id="footer">
   <center>
-    <h3>This is an IceFlag production (?)</h3>
+    <h3 style="color: #FF0000;">Successful requests for the night:</h3>
   </center>
+    <font size="5" face="Comic Sans MS">
+    <marquee bgcolor="#CC9933" style="font-weight: bold" height="70%" scrolldelay ="100"  scrollamount= "5" loop="infinite">
+      <div class="marquee">
+        <%= render "marquee" %>
+      </div>
+    </marquee>
+    </font>
+
 </footer><!-- #footer -->
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-</div>
