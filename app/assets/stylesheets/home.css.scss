@@ -24,15 +24,15 @@
 	}
 }
 
-.latest_requests {
+#latest_songs {
   background-color: #003366;
 }
 
-.accepted_songs {
+#accepted_songs {
   background-color: #006699;
 }
 
-.top_requests {
+#top_requests {
   background-color: #003300;
 }
 
@@ -40,6 +40,7 @@
   width: 80%;
   height: 80%;
 }
+
 #clubname {
   h1 {
     color: green;

@@ -89,11 +89,6 @@ input {
 	margin-left: -350px;
 	position: relative;
 	background: #FFFFFF;
-	.accepted_songs {
-    background-color: #006699;
-    position: relative;
-    right: 5px;
-  }
 }
 
 

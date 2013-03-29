@@ -1,19 +1,19 @@
 <div class="accepted_songs">
-  <div class="CSS_Table_Example" style="width:340px;">
-	  <table >
-		  <tr>
-			  <td >
-				  Accepted songs
-			  </td>
-		  </tr>
+  <div class="mytable" style="width:340px;">
+    <table >
+	    <tr>
+		    <td >
+			    Accepted songs
+		    </td>
+	    </tr>
   <% @accepted_songs.each do |song| %>
-		  <tr>
-			  <td>
-				  <%= song.song_title %><br/>
-				  (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>) - (Req: <%= song.requester %>)
-			  </td>
-		  </tr>
+	    <tr>
+		    <td>
+			    <%= song.song_title %><br/>
+			    (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>) - (Req: <%= song.requester %>)
+		    </td>
+	    </tr>
   <% end %>
-	  </table>
+    </table>
   </div>
 </div>
