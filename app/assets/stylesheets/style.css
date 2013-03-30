@@ -91,6 +91,16 @@ input {
 	background: #FFFFFF;
 }
 
+#sideRight2 {
+  position: relative;
+  top: 200px;
+	float: left;
+	margin-right: -3px;
+	width: 350px;
+	margin-left: -350px;
+	position: relative;
+	background: #FFFFFF;
+}
 
 /* Footer
 -----------------------------------------------------------------------------*/

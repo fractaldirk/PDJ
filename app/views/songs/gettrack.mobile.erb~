@@ -11,7 +11,7 @@
     <% unless song.status == 1 %>
       <% unless ((song.inactive == true) && (song.reputation_for(:votes).to_i <= 2)) %>
         <div data-theme="a" data-role="header">
-            <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' }, :class => "ui-btn-right", "data-role" => "button" %>
+            <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you nuts?' }, :class => "ui-btn-right", "data-role" => "button" %>
             <h4>
               (<%= song.reputation_for(:votes).to_i %>) <%= link_to truncate(song.song_title, :length => 35), edit_gettrack_song_path(song), "data-transition" => "slide" %>
             </h4>
