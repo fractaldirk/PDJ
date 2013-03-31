@@ -2,4 +2,27 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-setTimeout(alert, 3000)
+
+jQuery ->
+
+  Morris.Line
+    element: 'songs_chart'
+    data: $('#songs_chart').data('songs')
+    xkey: ['id']
+    ykeys: ['created_at']
+    labels: ['Points']
+
+  Morris.Line
+    element: 'annual'
+    data: [
+      {y: '2012', a: 100}
+      {y: '2011', a: 75}
+      {y: '2010', a: 50}
+      {y: '2009', a: 75}
+      {y: '2008', a: 50}
+      {y: '2007', a: 75}
+      {y: '2006', a: 100}
+    ]
+    xkey: 'y'
+    ykeys: ['a']
+    labels: ['Series a']

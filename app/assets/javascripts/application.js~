@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require home
+//= require raphael
+//= require morris
 
 $(document).ready(
   function() {
@@ -39,5 +41,12 @@ $(document).ready(
   function() {
     setInterval(function() {
       $('.marquee').load('/home/marquee');
+  }, 3000);
+});
+
+$(document).ready(
+  function() {
+    setInterval(function() {
+      $('.activity').load('/home/activity');
   }, 3000);
 });

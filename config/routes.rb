@@ -1,4 +1,8 @@
 Party::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   resources :paintings
 
   get "home/activity" => 'home#activity'
