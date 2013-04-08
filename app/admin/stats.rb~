@@ -1,5 +1,7 @@
 ActiveAdmin.register_page "stats" do
   content do
     para "Hello World"
+    render "admin/dashboard"
+
   end
 end

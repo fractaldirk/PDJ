@@ -1,20 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+<%= Song.find(:all, :conditions => ["created_at > ?", 1.week.ago]).count %>
 
-
-jQuery ->
-
-  Morris.Bar
-    element: 'songs_chart'
-    data: $('#songs_chart').data('songs')
-    xkey: ['created_at']
-    ykeys: ['id']
-    labels: ['Points']
-
-  Morris.Bar
-  element: 'bar_activity'
-  data: [
     a: <%= Song.find(:all, :conditions => ["created_at > ?", 2.weeks.ago]).count %>
   ,
     t: "3 days"
@@ -34,7 +19,5 @@ jQuery ->
   ,
     t: "1 hour"
     a: <%= Song.find(:all, :conditions => ["created_at > ?", 24.hours.ago]).count %>
-  ]
-  xkey: "t"
-  ykeys: "a"
-  labels: ['Songs Requested']
+
+<%= content_tag :div, "", id: "bar_activity" %>

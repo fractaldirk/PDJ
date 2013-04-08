@@ -1,0 +1,51 @@
+<!-- Put in your controller the following piece of code:
+     @songs = Song.find(:all)
+  -->
+
+<!-- Total accepted songs per user -->
+<!-- <p><%= Song.count(:all, :group =>  'user_name') %></p> -->
+
+<!--
+    Total distribution of songs (1 vote 5 times, 2 votes 10 times.. etc.)
+    <p><%= Song.count(:all, :group =>  'points') %></p>
+    Total distribution of accepted songs (1 vote 5 times, 2 votes 10 times.. etc.)
+    <p><%= Song.count(:all, :group => 'points', :conditions => {:status => 1}) %></p>
+  -->
+
+<!-- Songs listed per user_name (array output) -->
+<!-- <p><%= Song.find(:all, :group =>  'user_name') %></p> -->
+
+<!-- Total number of votes (top requesters - only counts accepted request's votes) -->
+<!-- <p><%= Song.sum(:points, :group => 'user_name') %></p> -->
+
+<!-- Songs requested (all of them), listed by requester's name (alphabethical order) -->
+<!--
+    <% @songs.sort_by{ |e| e[:requester]}.each do |song| %>
+      <ul class="list">
+        <li>(<%= song.requester %>) <%= song.song_title %></li>
+      </ul>
+    <% end %>
+  -->
+
+<!-- Songs successful requested, listed by requester's name (alphabethical order) -->
+<!--
+    <% @songs.sort_by{ |e| e[:requester]}.each do |song| %>
+      <% if song.status == 1 %>
+        <ul class="list">
+          <li>(<%= song.requester %>) <%= song.song_title %></li>
+        </ul>
+      <% end %>
+    <% end %>
+  -->
+
+<!--
+    Total number of songs requested
+    <p><%= Song.count(:id) %></p>
+    Total number of songs accepted
+    <p><%= Song.count(:id, :conditions => {:status => 1}) %></p>
+  -->
+
+<!--
+    Total of number of songs requested sorted by requester
+    <p><%= Song.count(:group => :requester) %></p>
+  -->

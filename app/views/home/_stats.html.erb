@@ -1,1 +1,9 @@
-<%= content_tag :div, "", id: "songs_chart", data: {songs: @songs} %>
+<%= content_tag :div, "", id: "songs_chart", data: {songs: Song.find(:all)} %>
+
+
+<%= content_tag :div, "", id: "songs_chart", data: {songs: Song.find(:all, :conditions => ["created_at > ?", 2.weeks.ago])} %>
+
+<hr />
+  <%= Song.find(:all, :conditions => ["created_at > ?", 48.hours.ago]).count %><br/>
+  <%= Song.find(:all, :conditions => ["created_at > ?", 1.week.ago]).count %>
+<hr />

@@ -1,6 +1,7 @@
-ActiveAdmin.register_page "stats" do
+ActiveAdmin.register_page "Stats" do
   content do
     para "Hello World"
-    render "home/stats"
+    render "admin/dashboard"
+
   end
 end

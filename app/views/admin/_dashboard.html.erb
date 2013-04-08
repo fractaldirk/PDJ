@@ -1,0 +1,3 @@
+<%= Song.find(:all, :conditions => ["created_at > ?", 1.week.ago]).count %>
+
+<%= content_tag :div, "", id: "bar_activity" %>

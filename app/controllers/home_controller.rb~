@@ -36,7 +36,7 @@ class HomeController < ApplicationController
     render :partial => "activity"
   end
   def privacy
-    @songs = Song.find(:all)
+
   end
   def terms
 

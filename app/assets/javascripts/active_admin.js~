@@ -5,23 +5,18 @@
 //= require morris
 //= require home
 
-new Morris.Line({
-  // ID of the element in which to draw the chart.
-  element: 'annual',
-  // Chart data records -- each entry in this array corresponds to a point on
-  // the chart.
+Morris.Bar({
+  element: 'bare',
   data: [
-    { year: '2008', value: 20 },
-    { year: '2009', value: 10 },
-    { year: '2010', value: 5 },
-    { year: '2011', value: 5 },
-    { year: '2012', value: 20 }
+    { t: '1 week', a: 100, b: 90 },
+    { t: '3 days', a: 75,  b: 65 },
+    { t: '48 hours', a: 50,  b: 40 },
+    { t: '24 hours', a: 75,  b: 65 },
+    { t: '12 hours', a: 50,  b: 40 },
+    { t: '6 hours', a: 75,  b: 65 },
+    { t: '1 hour', a: 100, b: 90 }
   ],
-  // The name of the data record attribute that contains x-values.
-  xkey: 'year',
-  // A list of names of data record attributes that contain y-values.
-  ykeys: ['value'],
-  // Labels for the ykeys -- will be displayed when you hover over the
-  // chart.
-  labels: ['Value']
+  xkey: 't',
+  ykeys: ['a', 'b'],
+  labels: ['Songs requested', 'Songs Accepted']
 });

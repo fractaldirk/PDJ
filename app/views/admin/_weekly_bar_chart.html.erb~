@@ -1,0 +1,28 @@
+<head>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Weekly activity', 'Accepted songs', 'Requested songs'],
+        ['24 Hours ago',  <%= Song.find(:all, :conditions => ["created_at > ? AND status = ?", 24.hours.ago, 1]).count %>,  <%= Song.find(:all, :conditions => ["created_at > ?", 24.hours.ago]).count %> ],
+        ['48 Hours ago',  <%= Song.find(:all, :conditions => ["created_at > ? AND status = ?", 48.hours.ago, 1]).count %>,  <%= Song.find(:all, :conditions => ["created_at > ?", 48.hours.ago]).count %> ],
+        ['72 Hours ago',  <%= Song.find(:all, :conditions => ["created_at > ? AND status = ?", 72.hours.ago, 1]).count %>,  <%= Song.find(:all, :conditions => ["created_at > ?", 72.hours.ago]).count %> ],
+        ['4 Days ago',  <%= Song.find(:all, :conditions => ["created_at > ? AND status = ?", 4.days.ago, 1]).count %>,  <%= Song.find(:all, :conditions => ["created_at > ?", 4.days.ago]).count %> ],
+        ['5 Days ago',  <%= Song.find(:all, :conditions => ["created_at > ? AND status = ?", 5.days.ago, 1]).count %>,  <%= Song.find(:all, :conditions => ["created_at > ?", 5.days.ago]).count %> ],
+        ['6 Days ago',  <%= Song.find(:all, :conditions => ["created_at > ? AND status = ?", 6.days.ago, 1]).count %>,  <%= Song.find(:all, :conditions => ["created_at > ?", 6.days.ago]).count %> ],
+        ['7 Days ago',  <%= Song.find(:all, :conditions => ["created_at > ? AND status = ?", 1.week.ago, 1]).count %>,  <%= render "home/test" %> ]
+      ]);
+
+      var options = {
+        title: 'User activity per day',
+        vAxis: {title: 'Days',  titleTextStyle: {color: 'blue'}}
+      };
+
+      var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+  <div id="chart_div" style="width: 900px; height: 500px;"></div>
