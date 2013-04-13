@@ -1,0 +1,22 @@
+<h2>Hello statistics</h2>
+
+<h4>Total requests</h4>
+7 days: <%= aweekago %><br/>
+6 days: <%= sixdaysago %><br/>
+5 days: <%= fivedaysago %><br/>
+4 days: <%= fourdaysago %><br/>
+3 days: <%= threedaysago %><br/>
+2 days: <%= twodaysago %><br/>
+1 day: <%= adayago.join(", ") %><br/>
+
+<hr />
+<%= Song.where(created_at: Time.parse("8:01pm")..Time.parse("9pm")).count %><br/>
+<%= Song.where(updated_at: Time.parse("9:01pm")..Time.parse("10pm")).count %><br/>
+<%= Song.where(updated_at: Time.parse("10:01pm")..Time.parse("11pm")).count %><br/>
+<%= Song.where(updated_at: Time.parse("10:01pm")..Time.parse("11pm"), status: 1).count %><br/>
+<%= tOne %>
+<hr />
+
+<%= render 'hourly_activity' %>
+
+<%= render 'weekly_activity' %>

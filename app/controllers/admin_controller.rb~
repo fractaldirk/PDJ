@@ -1,4 +1,7 @@
 class AdminController < ApplicationController
-  def Activity
+  def activity
+  end
+  def statistics
+
   end
 end

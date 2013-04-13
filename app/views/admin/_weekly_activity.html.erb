@@ -1,0 +1,28 @@
+<head>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Weekly activity', 'Requested songs', 'Accepted songs'],
+        ['24 Hours ago',  <%= adayago.join(", ") %> ],
+        ['48 Hours ago',  <%= twodaysago.join(", ") %> ],
+        ['72 Hours ago',  <%= threedaysago.join(", ") %> ],
+        ['4 Days ago',  <%= fourdaysago.join(", ") %> ],
+        ['5 Days ago',  <%= fivedaysago.join(", ") %> ],
+        ['6 Days ago',  <%= sixdaysago.join(", ") %> ],
+        ['7 Days ago',  <%= aweekago.join(", ") %> ]
+      ]);
+
+      var options = {
+        title: 'User activity per day (week)',
+        vAxis: {title: 'Days',  titleTextStyle: {color: 'blue'}}
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('weekly'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+  <div id="weekly" style="width: 900px; height: 500px;"></div>

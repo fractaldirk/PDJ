@@ -1,2 +1,355 @@
 module AdminHelper
+  def aweekago
+    a = Song.find(:all, :conditions => ["created_at > ?", 1.week.ago]).count.to_i
+    b = Song.find(:all, :conditions => ["created_at > ?", 6.days.ago]).count.to_i
+    c = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 1.week.ago, 1]).count.to_i
+    d = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 6.days.ago, 1]).count.to_i
+    abtotal = a - b
+    cdtotal = c - d
+    [abtotal, cdtotal]
+  end
+
+  def sixdaysago
+    a = Song.find(:all, :conditions => ["created_at > ?", 6.days.ago]).count.to_i
+    b = Song.find(:all, :conditions => ["created_at > ?", 5.days.ago]).count.to_i
+    c = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 6.days.ago, 1]).count.to_i
+    d = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 5.days.ago, 1]).count.to_i
+    abtotal = a - b
+    cdtotal = c - d
+    [abtotal, cdtotal]
+  end
+
+  def fivedaysago
+    a = Song.find(:all, :conditions => ["created_at > ?", 5.days.ago]).count.to_i
+    b = Song.find(:all, :conditions => ["created_at > ?", 4.days.ago]).count.to_i
+    c = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 5.days.ago, 1]).count.to_i
+    d = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 4.days.ago, 1]).count.to_i
+    abtotal = a - b
+    cdtotal = c - d
+    [abtotal, cdtotal]
+  end
+
+  def fourdaysago
+    a = Song.find(:all, :conditions => ["created_at > ?", 4.days.ago]).count.to_i
+    b = Song.find(:all, :conditions => ["created_at > ?", 3.days.ago]).count.to_i
+    c = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 4.days.ago, 1]).count.to_i
+    d = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 3.days.ago, 1]).count.to_i
+    abtotal = a - b
+    cdtotal = c - d
+    [abtotal, cdtotal]
+  end
+
+  def threedaysago
+    a = Song.find(:all, :conditions => ["created_at > ?", 3.days.ago]).count.to_i
+    b = Song.find(:all, :conditions => ["created_at > ?", 48.hours.ago]).count.to_i
+    c = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 3.days.ago, 1]).count.to_i
+    d = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 48.hours.ago, 1]).count.to_i
+    abtotal = a - b
+    cdtotal = c - d
+    [abtotal, cdtotal]
+  end
+
+  def twodaysago
+    a = Song.find(:all, :conditions => ["created_at > ?", 48.hours.ago]).count.to_i
+    b = Song.find(:all, :conditions => ["created_at > ?", 24.hours.ago]).count.to_i
+    c = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 48.hours.ago, 1]).count.to_i
+    d = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 24.hours.ago, 1]).count.to_i
+    abtotal = a - b
+    cdtotal = c - d
+    [abtotal, cdtotal]
+  end
+
+  def adayago
+    abtotal = Song.find(:all, :conditions => ["created_at > ?", 24.hours.ago]).count.to_i
+    cdtotal = Song.find(:all, :conditions => ["created_at > ? AND status = ?", 24.hours.ago, 1]).count.to_i
+    [abtotal, cdtotal]
+  end
+
+  def tOne
+    a = Song.where(created_at: Time.parse("09:01am")..Time.parse("09:30am")).count.to_i
+    b = Song.where(updated_at: Time.parse("09:01am")..Time.parse("09:30am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTwo
+    a = Song.where(created_at: Time.parse("09:31am")..Time.parse("10am")).count.to_i
+    b = Song.where(updated_at: Time.parse("09:31am")..Time.parse("10am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tThree
+    a = Song.where(created_at: Time.parse("10:01am")..Time.parse("10:30am")).count.to_i
+    b = Song.where(updated_at: Time.parse("10:01am")..Time.parse("10:30am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tFour
+    a = Song.where(created_at: Time.parse("10:31am")..Time.parse("11am")).count.to_i
+    b = Song.where(updated_at: Time.parse("10:31am")..Time.parse("11am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tFive
+    a = Song.where(created_at: Time.parse("11:01am")..Time.parse("11:30am")).count.to_i
+    b = Song.where(updated_at: Time.parse("11:01am")..Time.parse("11:30am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tSix
+    a = Song.where(created_at: Time.parse("11:31am")..Time.parse("12pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("11:31am")..Time.parse("12pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tEight
+    a = Song.where(created_at: Time.parse("12:01pm")..Time.parse("12:30pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("12:01pm")..Time.parse("12:31pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tEight
+    a = Song.where(created_at: Time.parse("12:31pm")..Time.parse("1pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("12:31pm")..Time.parse("1pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tNine
+    a = Song.where(created_at: Time.parse("1:01pm")..Time.parse("1:30pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("1:01pm")..Time.parse("1:30pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTen
+    a = Song.where(created_at: Time.parse("1:31pm")..Time.parse("2pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("1:31pm")..Time.parse("2pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tEleven
+    a = Song.where(created_at: Time.parse("2:01pm")..Time.parse("2:30pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("2:01pm")..Time.parse("2:30pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTwelve
+    a = Song.where(created_at: Time.parse("2:31pm")..Time.parse("3pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("2:31pm")..Time.parse("3pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tThirteen
+    a = Song.where(created_at: Time.parse("3:01pm")..Time.parse("3:30pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("3:01pm")..Time.parse("3:30pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tFourteen
+    a = Song.where(created_at: Time.parse("3:31pm")..Time.parse("4pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("3:31pm")..Time.parse("4pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tFifteen
+    a = Song.where(created_at: Time.parse("4:01pm")..Time.parse("4:30pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("4:01pm")..Time.parse("4:30pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tSixteen
+    a = Song.where(created_at: Time.parse("4:31pm")..Time.parse("5pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("4:31pm")..Time.parse("5pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tSeventeen
+    a = Song.where(created_at: Time.parse("5:01pm")..Time.parse("5:30pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("5:01pm")..Time.parse("5:30pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tEighteen
+    a = Song.where(created_at: Time.parse("5:31pm")..Time.parse("6pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("5:31pm")..Time.parse("6pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tNineteen
+    a = Song.where(created_at: Time.parse("6:01pm")..Time.parse("6:30pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("6:01pm")..Time.parse("6:30pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTwenty
+    a = Song.where(created_at: Time.parse("6:31pm")..Time.parse("7pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("6:31pm")..Time.parse("7pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTwentyone
+    a = Song.where(created_at: Time.parse("7:01pm")..Time.parse("7:30pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("7:01pm")..Time.parse("7:30pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTwentytwo
+    a = Song.where(created_at: Time.parse("7:31pm")..Time.parse("8pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("7:31pm")..Time.parse("8pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTwentythree
+    a = Song.where(created_at: Time.parse("8:01pm")..Time.parse("8:30pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("8:01pm")..Time.parse("8:30pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTwentyfour
+    a = Song.where(created_at: Time.parse("8:31pm")..Time.parse("9pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("8:31pm")..Time.parse("9pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTwentyfive
+    a = Song.where(created_at: Time.parse("9:01pm")..Time.parse("9:30pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("9:01pm")..Time.parse("9:30pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTwentysix
+    a = Song.where(created_at: Time.parse("9:31pm")..Time.parse("10pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("9:31pm")..Time.parse("10pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTwentyseven
+    a = Song.where(created_at: Time.parse("10:01pm")..Time.parse("10:30pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("10:01pm")..Time.parse("10:30pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTwentyeight
+    a = Song.where(created_at: Time.parse("10:31pm")..Time.parse("11pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("10:31pm")..Time.parse("11pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tTwentynine
+    a = Song.where(created_at: Time.parse("11:01pm")..Time.parse("11:30pm")).count.to_i
+    b = Song.where(updated_at: Time.parse("11:01pm")..Time.parse("11:30pm"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tThirty
+    a = Song.where(created_at: Time.parse("11:31pm")..Time.parse("12am")).count.to_i
+    b = Song.where(updated_at: Time.parse("11:31pm")..Time.parse("12am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tThirtyone
+    a = Song.where(created_at: Time.parse("12:01am")..Time.parse("12:30am")).count.to_i
+    b = Song.where(updated_at: Time.parse("12:01am")..Time.parse("12:30am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tThirtytwo
+    a = Song.where(created_at: Time.parse("12:31am")..Time.parse("1am")).count.to_i
+    b = Song.where(updated_at: Time.parse("12:31am")..Time.parse("1am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tThirtythree
+    a = Song.where(created_at: Time.parse("1:01am")..Time.parse("1:30am")).count.to_i
+    b = Song.where(updated_at: Time.parse("1:01am")..Time.parse("1:30am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tThirtyfour
+    a = Song.where(created_at: Time.parse("1:31am")..Time.parse("2am")).count.to_i
+    b = Song.where(updated_at: Time.parse("1:31am")..Time.parse("2am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tThirtyfive
+    a = Song.where(created_at: Time.parse("2:01am")..Time.parse("2:30am")).count.to_i
+    b = Song.where(updated_at: Time.parse("2:01am")..Time.parse("2:30am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tThirtysix
+    a = Song.where(created_at: Time.parse("2:31am")..Time.parse("3am")).count.to_i
+    b = Song.where(updated_at: Time.parse("2:31am")..Time.parse("3am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tThirtyseven
+    a = Song.where(created_at: Time.parse("3:01am")..Time.parse("3:30am")).count.to_i
+    b = Song.where(updated_at: Time.parse("3:01am")..Time.parse("3:30am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tThirtyeight
+    a = Song.where(created_at: Time.parse("3:31am")..Time.parse("4am")).count.to_i
+    b = Song.where(updated_at: Time.parse("3:31am")..Time.parse("4am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tThirtynine
+    a = Song.where(created_at: Time.parse("4:01am")..Time.parse("4:30am")).count.to_i
+    b = Song.where(updated_at: Time.parse("4:01am")..Time.parse("4:30am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tForty
+    a = Song.where(created_at: Time.parse("4:31am")..Time.parse("5am")).count.to_i
+    b = Song.where(updated_at: Time.parse("4:31am")..Time.parse("5am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tFortyone
+    a = Song.where(created_at: Time.parse("5:01am")..Time.parse("5:30am")).count.to_i
+    b = Song.where(updated_at: Time.parse("5:01am")..Time.parse("5:30am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tFortytwo
+    a = Song.where(created_at: Time.parse("5:31am")..Time.parse("6am")).count.to_i
+    b = Song.where(updated_at: Time.parse("5:31am")..Time.parse("6am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tFortythree
+    a = Song.where(created_at: Time.parse("6:01am")..Time.parse("6:30am")).count.to_i
+    b = Song.where(updated_at: Time.parse("6:01am")..Time.parse("6:30am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tFortyfour
+    a = Song.where(created_at: Time.parse("6:31am")..Time.parse("7am")).count.to_i
+    b = Song.where(updated_at: Time.parse("6:31am")..Time.parse("7am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tFortyfive
+    a = Song.where(created_at: Time.parse("7:01am")..Time.parse("7:30am")).count.to_i
+    b = Song.where(updated_at: Time.parse("7:01am")..Time.parse("7:30am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tFortysix
+    a = Song.where(created_at: Time.parse("7:31am")..Time.parse("8am")).count.to_i
+    b = Song.where(updated_at: Time.parse("7:31am")..Time.parse("8am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tFortyseven
+    a = Song.where(created_at: Time.parse("8:01am")..Time.parse("8:30am")).count.to_i
+    b = Song.where(updated_at: Time.parse("8:01am")..Time.parse("8:30am"), status: 1).count.to_i
+    [ a, b]
+  end
+
+  def tFortyeight
+    a = Song.where(created_at: Time.parse("8:31am")..Time.parse("9am")).count.to_i
+    b = Song.where(updated_at: Time.parse("8:31am")..Time.parse("9am"), status: 1).count.to_i
+    [ a, b]
+  end
 end

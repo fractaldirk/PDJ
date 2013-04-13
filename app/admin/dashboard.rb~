@@ -3,12 +3,8 @@ ActiveAdmin.register_page "Dashboard" do
   menu :priority => 1, :label => proc{ I18n.t("active_admin.dashboard") }
 
   content :title => proc{ I18n.t("active_admin.dashboard") } do
+
     # content
-      def weekago
-        week = Song.find(:all, :conditions => ["created_at > ?", 1.week.ago]).count.to_i
-        bweek = Song.find(:all, :conditions => ["created_at > ?", 6.days.ago]).count.to_i
-        week - bweek
-      end
       render "admin/test"
       render "admin/weekly_bar_chart"
     end

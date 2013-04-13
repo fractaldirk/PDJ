@@ -33,7 +33,9 @@ class Song < ActiveRecord::Base
     Time.now.to_i - created_at.to_i
   end
 
-  def songstatus
-    1
+  def weekagos
+    week = Song.find(:all, :conditions => ["created_at > ?", 1.week.ago]).count.to_i
+    bweek = Song.find(:all, :conditions => ["created_at > ?", 6.days.ago]).count.to_i
+    week - bweek
   end
 end

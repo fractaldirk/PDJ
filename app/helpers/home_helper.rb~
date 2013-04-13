@@ -1,10 +1,7 @@
 module HomeHelper
-  def orders_chart_data
-    (2.weeks.ago.to_date..Date.today).map do |date|
-      {
-        created_at: date,
-        id: Song.order(:id).map(:requester)
-      }
-    end
+  def weekagos
+    week = Song.find(:all, :conditions => ["created_at > ?", 1.week.ago]).count.to_i
+    bweek = Song.find(:all, :conditions => ["created_at > ?", 6.days.ago]).count.to_i
+    week - bweek
   end
 end

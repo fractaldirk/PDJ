@@ -1,0 +1,28 @@
+<head>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Hourly activity (half an hour interval)', 'Requested songs', 'Accepted songs'],
+        ['9-9:30',  <%= tOne.join(", ") %> ],
+        ['9:31-10',  <%= tTwo.join(", ") %> ],
+        ['10-10:30',  <%= tThree.join(", ") %> ],
+        ['10:31-11',  <%= tFour.join(", ") %> ],
+        ['11-11:30',  <%= tFive.join(", ") %> ],
+        ['11:31-12',  <%= tSix.join(", ") %> ],
+        ['12-12:30',  <%= tSeven.join(", ") %> ],
+      ]);
+
+      var options = {
+        title: 'User activity per 30 minutes',
+        vAxis: {title: 'Time',  titleTextStyle: {color: 'blue'}}
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('hourly'));
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+  <div id="hourly" style="width: 900px; height: 500px;"></div>

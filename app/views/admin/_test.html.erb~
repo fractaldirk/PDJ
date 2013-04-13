@@ -1,1 +1,3 @@
-<%= Song.where(created_at: Time.parse("1pm")..Time.parse("11:30pm"), status: 1).count %>
+<%= Song.where(created_at: Time.parse("1pm")..Time.parse("11:30pm")).count %>
+<%= Song.where(updated_at: Time.parse("1pm")..Time.parse("11:30pm"), status: 1).count %><br/>
+<%= weekagos %>
