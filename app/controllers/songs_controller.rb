@@ -14,6 +14,14 @@ class SongsController < ApplicationController
   end
 
   def gettrack
+    redirect_to songs_gettracky_path
+  end
+
+  def gettracky
+    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
+  end
+
+  def gettrackyy
     @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
   end
 
@@ -71,12 +79,14 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
 
       if params[:song_status]
-        @song.update_attributes(params[:song])
-          if current_user
+        if current_user
+          @song.update_attributes(params[:song])
             Painting.delay.create(promotion: false, song_name: @song.name)
             WallPost.delay.accepted(@song)
-          end
-        redirect_to songs_gettrack_path(:format => :mobile)
+        else
+          @song.update_attributes(params[:song])
+        end
+        redirect_to songs_gettrack_path(@songs)
       elsif params[:new_song]
         @song.update_attributes(params[:song])
         redirect_to @song

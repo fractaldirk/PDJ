@@ -1,0 +1,7 @@
+<p>
+  <% if mobile_device? %>
+    <%= link_to "Full Site", :mobile => 0 %>
+  <% else %>
+    <%= link_to "Go to DJ screen", :mobile => 1 %>
+  <% end %>
+</p>

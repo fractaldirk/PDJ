@@ -14,6 +14,7 @@ Party::Application.routes.draw do
   get "home/reloadtopsongs" => 'home#reload_top_songs'
   get "home/marquee" => 'home#marquee'
   get "home/index"
+  get "dj" => 'home#dj'
   get "home/dashboard" => 'home#dashboard'
   get "home/privacy" => 'home#privacy'
   get "home/terms" => 'home#terms'
@@ -26,6 +27,8 @@ Party::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
   get 'songs/gettrack' => 'songs#gettrack'
+  get 'songs/gettracky' => 'songs#gettracky'
+  get 'songs/gettrackyy' => 'songs#gettrackyy'
   get 'songs/tracklist' => 'songs#tracklist'
   get 'songs/add' => 'songs#add'
   resources :songs do

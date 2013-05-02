@@ -11,17 +11,25 @@
     </div>
   <% end %>
 
-    <%= f.hidden_field :points, :value => @song.reputation_for(:votes).to_i %>
-    <%= f.hidden_field :user_fb, :value => current_user.uid %>
-    <%= f.hidden_field :user_name, :value => current_user.name %>
+<div data-theme="d" data-role="header">
+    <h3>
+      <center>
+        Approve song
+      </center>
+    </h3>
+</div>
 
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.select(:status, [["approved", "1"]]) %>
+<div data-theme="a" data-role="header">
+
+  <h4><center><%= @song.song_title %></center></h4>
+  <div class="hidden_field">
+    <%= f.hidden_field :points, :value => @song.reputation_for(:votes).to_i %>
+    <%= f.hidden_field :status, :value => '1' %>
   </div>
   <div class="actions">
-    <%= f.submit "Send request", :name => "song_status" %>
+    <%= f.submit "Approve song", :name => "song_status", :class => "ui-btn-right", "data-role" => "button" %>
+    <%= link_to 'Back', songs_gettrack_path, :class => "ui-btn-left", "data-role" => "button" %>
   </div>
 <% end %>
 
-<%= link_to 'Back', songs_gettrack_path %>
+</div>

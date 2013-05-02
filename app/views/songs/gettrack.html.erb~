@@ -1,13 +1,17 @@
 <h2>Manage songs</h2>
 
+<br/>
+<hr />
+<br/>
+
 <% @songs.each do |song| %>
-
-  <ul>
-    <li><%= link_to song.name, song %> , <%= link_to 'Edit', edit_gettrack_song_path(song) %><br/>
-  <% if current_user && !current_user.voted_for?(song) %>
-    <%= pluralize song.reputation_for(:votes).to_i, "vote" %>|
-    <%= link_to "up", vote_song_path(song, type: "up"), method: "post" %></li>
+  <% unless song.status == 1 %>
+    <% unless ((song.inactive == true) && (song.reputation_for(:votes).to_i <= 2)) %>
+      <div id="djsongs">
+          <%= button_to 'Approve', edit_gettrack_song_path(song), :method => "get" %>
+          (<%= song.reputation_for(:votes).to_i %>) <%= song.name %>
+          <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' }, :class => "ui-btn-right", "data-role" => "button" %>
+      </div>
+    <% end %>
   <% end %>
-  </ul>
-
 <% end %>

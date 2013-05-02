@@ -50,6 +50,11 @@ class HomeController < ApplicationController
   def about
 
   end
+  def dj
+    if params[:mobile].to_i == 1
+      redirect_to "/songs/gettrack/"
+    end
+  end
 
 private
 

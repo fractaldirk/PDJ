@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :song, :points, :user_name, :user_fb
+  attr_accessible :song
   has_many :songs
 
   has_many :evaluations, class_name: "ReputationSystem::Evaluation", as: :source
@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
+      user.email = auth.info.email
+      user.username = auth.info.nickname
+      user.gender = auth.extra.raw_info.gender
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
