@@ -8,7 +8,7 @@ class HomeController < ApplicationController
     end
   end
   def dashboard
-    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
+    @songs = Song.find_with_reputation(:votes, :all, {:conditions => "status IS NOT 1", :order => "votes desc", :limit => 4 })
     @accepted_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "3")
     @marquee_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "2")
     @latest_songs = Song.find_with_reputation(:votes, :all, order: "created_at desc", :limit => "7")
@@ -20,7 +20,7 @@ class HomeController < ApplicationController
   end
 
   def reload_top_songs
-    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
+    @songs = Song.find_with_reputation(:votes, :all, {:conditions => "status IS NOT 1", :order => "votes desc", :limit => 4 })
     render :partial => "top_requests"
   end
   def reload
@@ -51,7 +51,9 @@ class HomeController < ApplicationController
 
   end
   def dj
-
+    if params[:mobile].to_i == 1
+      redirect_to "/songs/gettrack/"
+    end
   end
 
 private

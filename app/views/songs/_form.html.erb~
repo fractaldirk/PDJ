@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-<div data-theme="b" data-role="header">
-  <h3>
-    <%= link_to 'Back', songs_path, :class => "ui-btn-left", "data-role" => "button" %>
-    <center>
-      New song
-    </center>
-  </h3>
-</div>
+  <div data-theme="b" data-role="header">
+    <h3>
+      <%= link_to 'Back', songs_path, :class => "ui-btn-left", "data-role" => "button" %>
+      <center>
+        New song
+      </center>
+    </h3>
+  </div>
 
   <div data-theme="a" data-role="header">
     <div class="field">
