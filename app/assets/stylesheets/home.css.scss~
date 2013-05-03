@@ -26,7 +26,6 @@
 
 #latest_songs {
   background-color: #003366;
-  right: 10px;
 }
 
 #accepted_songs {
@@ -35,7 +34,6 @@
 
 #top_requests {
   background-color: #003300;
-  left: 10px;
 }
 
 #accepted {

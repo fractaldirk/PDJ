@@ -1,7 +1,8 @@
 class AdminController < ApplicationController
   def activity
+
   end
   def statistics
-
+    @users = User.find(:all)
   end
 end

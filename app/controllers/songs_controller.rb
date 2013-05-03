@@ -56,6 +56,7 @@ class SongsController < ApplicationController
 
   def edit_gettrack
     @song = Song.find(params[:id])
+    @user = User.find(@song.user_id)
   end
 
   def create
@@ -77,14 +78,17 @@ class SongsController < ApplicationController
 
   def update
     @song = Song.find(params[:id])
+    @user = User.find(@song.user_id)
 
       if params[:song_status]
         if current_user
           @song.update_attributes(params[:song])
+            @user.update_attribute(:score, @user.score + @song.points)
             Painting.delay.create(promotion: false, song_name: @song.name)
             WallPost.delay.accepted(@song)
         else
           @song.update_attributes(params[:song])
+          @user.update_attribute(:score, @user.score + @song.points)
         end
         redirect_to songs_gettrack_path(@songs)
       elsif params[:new_song]

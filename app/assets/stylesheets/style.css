@@ -41,7 +41,11 @@ input {
 -----------------------------------------------------------------------------*/
 #header {
 	height: 58px;
-	background: none;
+	background: url('bannert.jpg');
+	  hr {
+      color: #000;
+      background-color: #000;
+    }
 }
 
 

@@ -40,8 +40,12 @@ input {
 /* Header
 -----------------------------------------------------------------------------*/
 #header {
-	height: 58px;
-	background: none;
+	height: 158px;
+	background: url('bannert.jpg');
+	  hr {
+      color: #000;
+      background-color: #000;
+    }
 }
 
 
@@ -93,7 +97,7 @@ input {
 
 #sideRight2 {
   position: relative;
-  top: 20px;
+  top: 200px;
 	float: left;
 	margin-right: -3px;
 	width: 350px;
