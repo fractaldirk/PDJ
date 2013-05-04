@@ -3,6 +3,6 @@ class AdminController < ApplicationController
 
   end
   def statistics
-    @users = User.find(:all)
+    @users = User.find(:all, :order => "score DESC", :limit => 5)
   end
 end

@@ -28,7 +28,7 @@ Party::Application.routes.draw do
 
   get 'songs/gettrack' => 'songs#gettrack'
   get 'songs/gettracky' => 'songs#gettracky'
-  get 'songs/gettracky' => 'songs#gettrackyy'
+  get 'songs/gettrackyy' => 'songs#gettrackyy'
   get 'songs/tracklist' => 'songs#tracklist'
   get 'songs/add' => 'songs#add'
   resources :songs do

@@ -1,6 +1,7 @@
 Party::Application.routes.draw do
   get "admin/activity"
   get "admin/statistics"
+  get "admin/statisticz"
 
   ActiveAdmin.routes(self)
 
