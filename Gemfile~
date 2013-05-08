@@ -20,6 +20,13 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'sqlite3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
 gem 'jquery-rails'
 
 gem "omniauth", "~> 1.1.1"
@@ -33,6 +40,8 @@ gem 'jquery_mobile_rails'
 
 gem 'rmagick'
 gem 'carrierwave'
+
+gem 'activeadmin'
 
 
 # To use ActiveModel has_secure_password

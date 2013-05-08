@@ -1,0 +1,14 @@
+<table class="table table-striped table-bordered table-hover" style="width:300px;">
+  <tr>
+    <td>#</td>
+    <td>Name/nickname</td>
+  </tr>
+<% just_a_counter = 0 %>
+<% @last_top_users.each do |u| %>
+<% just_a_counter += 1 %>
+  <tr>
+    <td><%= just_a_counter %></td>
+    <td><%= link_to u.user_name, "http://www.facebook.com/" + u.user_name.to_s, :target => "_blank" %></td>
+  </tr>
+<% end %>
+</table>

@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require home
 //= require raphael
 //= require morris
+//= require home
+//= require bootstrap
 
 $(document).ready(
   function() {

@@ -1,4 +1,15 @@
 module AdminHelper
+
+  def table
+    data = [Song.count(:all, :group =>  'user_name')]
+    xm = Builder::XmlMarkup.new(:indent => 2)
+    xm.table {
+      xm.tr { data[0].keys.each { |key| xm.th(key)}}
+      data.each { |row| xm.tr { row.values.each { |value| xm.td(value)}}}
+    }
+    puts "#{xm}"
+  end
+
   def aweekago
     a = Song.find(:all, :conditions => ["created_at > ?", 1.week.ago]).count.to_i
     b = Song.find(:all, :conditions => ["created_at > ?", 6.days.ago]).count.to_i
@@ -101,7 +112,7 @@ module AdminHelper
     [ a, b]
   end
 
-  def tEight
+  def tSeven
     a = Song.where(created_at: Time.parse("12:01pm")..Time.parse("12:30pm")).count.to_i
     b = Song.where(updated_at: Time.parse("12:01pm")..Time.parse("12:31pm"), status: 1).count.to_i
     [ a, b]

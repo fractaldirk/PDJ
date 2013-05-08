@@ -1,0 +1,16 @@
+<table class="table table-striped table-bordered table-hover" style="width:300px;">
+  <tr>
+    <td>#</td>
+    <td>Name/nickname</td>
+    <td style="text-align: right;">Score</td>
+  </tr>
+<% just_a_counter = 0 %>
+<% @top_users.each do |u| %>
+<% just_a_counter += 1 %>
+  <tr>
+    <td><%= just_a_counter %></td>
+    <td><%= link_to u.name, "http://www.facebook.com/" + u.username.to_s, :target => "_blank" %></td>
+    <td style="text-align: right;"><%= u.score %></td>
+  </tr>
+<% end %>
+</table>

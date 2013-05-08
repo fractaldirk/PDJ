@@ -1,26 +1,45 @@
-<h2>Hello statistics</h2>
-
-<hr />
-
-<% @users.each do |u| %>
-  <p><%= u.name %> has <%= u.score %> points.</p>
+<% content_for :head do %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= stylesheet_link_tag "bootstrap" %>
+  <%= stylesheet_link_tag "statistics" %>
 <% end %>
 
-<h4>Total requests</h4>
-7 days: <%= aweekago %><br/>
-6 days: <%= sixdaysago %><br/>
-5 days: <%= fivedaysago %><br/>
-4 days: <%= fourdaysago %><br/>
-3 days: <%= threedaysago %><br/>
-2 days: <%= twodaysago %><br/>
-1 day: <%= adayago.join(", ") %><br/>
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <a class="brand" href="#">My statistics</a>
+    <ul class="nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><%= link_to 'Top Users', admin_top_users_path %></li>
+      <li class="divider-vertical"></li>
+      <li class="right"><%= link_to 'Admin panel', admin_dashboard_path %></li>
+    </ul>
+  </div>
+</div>
 
-<hr />
-<%= Song.where(created_at: Time.parse("8:01pm")..Time.parse("9pm")).count %><br/>
-<%= Song.where(updated_at: Time.parse("9:01pm")..Time.parse("10pm")).count %><br/>
-<%= Song.where(updated_at: Time.parse("10:01pm")..Time.parse("11pm")).count %><br/>
-<%= Song.where(updated_at: Time.parse("10:01pm")..Time.parse("11pm"), status: 1).count %><br/>
-<%= tOne %>
+<div class="well">
+  <center>
+    <h2>Hello statistics</h2>
+  </center>
+</div>
+
+  <div class="container">
+    <div class="row">
+      <div class="span4">
+        <h4>Top requesters</h4>
+        <%= render "top_requesters" %>
+      </div>
+      <div class="span4">
+        <h4>Most succesfull requesters this week</h4>
+        <%= render "top_requesters_tonight" %>
+      </div>
+      <div class="span4">
+        <h4>General Statistics</h4>
+        <%= render "general_statistics" %>
+      </div>
+    </div>
+  </div>
+
+
 <hr />
 
 <%= render 'hourly_activity' %>

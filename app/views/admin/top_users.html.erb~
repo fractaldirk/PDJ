@@ -1,0 +1,62 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= stylesheet_link_tag "bootstrap" %>
+  <%= stylesheet_link_tag "statistics" %>
+<% end %>
+
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <a class="brand" href="#">My statistics</a>
+    <ul class="nav">
+      <li ><%= link_to 'Home', admin_statistics_path %></li>
+      <li class="active"><%= link_to 'Top Users', "#" %></li>
+      <li class="divider-vertical"></li>
+      <li class="right"><%= link_to 'Admin panel', admin_admin_user_path %></li>
+    </ul>
+  </div>
+</div>
+
+<div class="well">
+  <center>
+    <h2>Wall of legends</h2>
+  </center>
+</div>
+
+  <div class="container">
+    <div class="row">
+      <div class="span1">
+        <br/>
+      </div>
+      <div class="span10">
+
+        <table class="table table-striped table-bordered table-hover">
+          <tr>
+            <td>#</td>
+            <td style="text-align: right;">Score</td>
+            <td>Name/nickname</td>
+            <td>Gender</td>
+            <td>Location</td>
+            <td>Email</td>
+            <td>FB Language</td>
+          </tr>
+        <% just_a_counter = 0 %>
+        <% @users.each do |u| %>
+        <% just_a_counter += 1 %>
+          <tr>
+            <td><%= just_a_counter %></td>
+            <td style="text-align: right;"><%= u.score %></td>
+            <td><%= link_to u.name, "http://www.facebook.com/" + u.username.to_s, :target => "_blank" %></td>
+            <td><%= u.gender %></td>
+            <td><%= u.location %></td>
+            <td><%= u.email %></td>
+            <td><%= u.locale %></td>
+          </tr>
+        <% end %>
+        </table>
+
+      </div>
+      <div class="span1">
+        <br/>
+      </div>
+    </div>
+  </div>

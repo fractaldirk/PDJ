@@ -1,0 +1,14 @@
+<table class="table table-striped table-bordered table-hover" style="width:300px;">
+  <tr>
+    <td>Catagory</td>
+    <td>Statistic</td>
+  </tr>
+  <tr>
+    <td># Males</td>
+    <td><%= User.count(:all, :conditions => {:gender => "male"}) %></td>
+  </tr>
+  <tr>
+    <td># Females</td>
+    <td><%= User.count(:all, :conditions => {:gender => "female"}) %></td>
+  </tr>
+</table>

@@ -1,4 +1,5 @@
 module AdminHelper
+
   def aweekago
     a = Song.find(:all, :conditions => ["created_at > ?", 1.week.ago]).count.to_i
     b = Song.find(:all, :conditions => ["created_at > ?", 6.days.ago]).count.to_i
