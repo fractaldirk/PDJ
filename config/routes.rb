@@ -16,6 +16,7 @@ Party::Application.routes.draw do
   get "home/marquee" => 'home#marquee'
   get "home/index"
   get "dj" => 'home#dj'
+  get "live" => 'home#dashboard'
   get "home/dashboard" => 'home#dashboard'
   get "home/privacy" => 'home#privacy'
   get "home/terms" => 'home#terms'
