@@ -1,5 +1,4 @@
 Party::Application.routes.draw do
-  get "admin/activity"
   get "admin/statistics"
   get "admin/top_users"
   get "admin/statisticz"

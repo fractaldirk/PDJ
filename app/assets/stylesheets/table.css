@@ -1,8 +1,8 @@
 .mytable {
 	margin:0px;padding:0px;
 	width:100%;
-	box-shadow: 10px 10px 5px #003300;
-	border:1px solid #003300;
+	box-shadow: 10px 10px 5px #000000;
+	border:1px solid #000000;
 
 	-moz-border-radius-bottomleft:8px;
 	-webkit-border-bottom-left-radius:8px;

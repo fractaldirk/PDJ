@@ -1,0 +1,93 @@
+.mytable {
+	margin:0px;padding:0px;
+	width:100%;
+	box-shadow: 10px 10px 5px #000000;
+	border:0px solid #000000;
+
+	-moz-border-radius-bottomleft:8px;
+	-webkit-border-bottom-left-radius:8px;
+	border-bottom-left-radius:8px;
+
+	-moz-border-radius-bottomright:8px;
+	-webkit-border-bottom-right-radius:8px;
+	border-bottom-right-radius:8px;
+
+	-moz-border-radius-topright:8px;
+	-webkit-border-top-right-radius:8px;
+	border-top-right-radius:8px;
+
+	-moz-border-radius-topleft:8px;
+	-webkit-border-top-left-radius:8px;
+	border-top-left-radius:8px;
+}.mytable table{
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.mytable tr:last-child td:last-child {
+	-moz-border-radius-bottomright:8px;
+	-webkit-border-bottom-right-radius:8px;
+	border-bottom-right-radius:8px;
+}
+.mytable table tr:first-child td:first-child {
+	-moz-border-radius-topleft:8px;
+	-webkit-border-top-left-radius:8px;
+	border-top-left-radius:8px;
+}
+.mytable table tr:first-child td:last-child {
+	-moz-border-radius-topright:8px;
+	-webkit-border-top-right-radius:8px;
+	border-top-right-radius:8px;
+}.mytable tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:8px;
+	-webkit-border-bottom-left-radius:8px;
+	border-bottom-left-radius:8px;
+}.mytable tr:hover td{
+
+}
+.mytable tr:nth-child(odd){ background-color:#4f4d4c; }
+.mytable tr:nth-child(even)    { background-color:#6b6b6b; }.mytable td{
+	vertical-align:middle;
+
+
+	border:1px solid #828282;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:7px;
+	font-size:12px;
+	font-family:Comic Sans MS;
+	font-weight:bold;
+	color:#fcf9f9;
+}.mytable tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.mytable tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.mytable tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.mytable tr:first-child td{
+		background:-o-linear-gradient(bottom, #000000 5%, #333333 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #333333) );
+	background:-moz-linear-gradient( center top, #000000 5%, #333333 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#333333");	background: -o-linear-gradient(top,#000000,333333);
+
+	background-color:#000000;
+	border:0px solid #828282;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:20px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#ffffff;
+}
+.mytable tr:first-child:hover td{
+	background:-o-linear-gradient(bottom, #000000 5%, #333333 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #333333) );
+	background:-moz-linear-gradient( center top, #000000 5%, #333333 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#333333");	background: -o-linear-gradient(top,#000000,333333);
+
+	background-color:#000000;
+}
+.mytable tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.mytable tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}
