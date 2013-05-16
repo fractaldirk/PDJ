@@ -20,7 +20,7 @@ class HomeController < ApplicationController
   end
 
   def reload_top_songs
-    @songs = Song.find_with_reputation(:votes, :all, {:conditions => "status IS NOT 1", :order => "votes desc", :limit => 30 })
+    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
     render :partial => "top_requests"
   end
   def reload

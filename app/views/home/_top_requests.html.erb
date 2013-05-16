@@ -7,13 +7,15 @@
 			  </td>
 		  </tr>
   <% @songs.each do |song| %>
-    <% unless ((song.inactive == true) && (song.reputation_for(:votes).to_i <= 2)) %>
-	    <tr>
-	      <td>
-	      <%= song.song_title %><br/>
-        (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>) - (Req: <%= song.requester %>)
-        </td>
-	    </tr>
+    <% unless song.status == 1 %>
+      <% unless ((song.inactive == true) && (song.reputation_for(:votes).to_i <= 2)) %>
+	      <tr>
+	        <td>
+	        <%= song.song_title %><br/>
+          (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>) - (Req: <%= song.requester %>)
+          </td>
+	      </tr>
+      <% end %>
     <% end %>
   <% end %>
     </table>

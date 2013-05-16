@@ -1,4 +1,4 @@
-<div class="latest_songs">
+<div id="latest_songs">
   <div class="mytable" style="width:340px;">
     <table >
 	    <tr>

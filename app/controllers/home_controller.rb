@@ -56,6 +56,10 @@ class HomeController < ApplicationController
     end
   end
 
+  def testy
+
+  end
+
 private
 
   def prepare_for_mobile

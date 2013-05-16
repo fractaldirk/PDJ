@@ -1,4 +1,4 @@
-<div class="accepted_songs">
+<div id="accepted_songs">
   <div class="mytable" style="width:340px;">
     <table >
 	    <tr>
