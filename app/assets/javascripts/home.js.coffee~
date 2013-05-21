@@ -3,38 +3,27 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
-jQuery ->
+$(document).ready ->
+  setInterval (->
+    $(".accepted_songs").load "/home/reload"
+  ), 3000
 
-  Morris.Bar
-    element: 'songs_chart'
-    data: $('#songs_chart').data('songs')
-    xkey: ['created_at']
-    ykeys: ['id']
-    labels: ['Points']
+$(document).ready ->
+  setInterval (->
+    $(".latest_songs").load "/home/reloadlatestsongs"
+  ), 3000
 
-  Morris.Bar
-  element: 'bar_activity'
-  data: [
-    a: <%= Song.find(:all, :conditions => ["created_at > ?", 2.weeks.ago]).count %>
-  ,
-    t: "3 days"
-    a: <%= Song.find(:all, :conditions => ["created_at > ?", 3.days.ago]).count %>
-  ,
-    t: "48 hours"
-    a: <%= Song.find(:all, :conditions => ["created_at > ?", 2.days.ago]).count %>
-  ,
-    t: "24 hours"
-    a: <%= Song.find(:all, :conditions => ["created_at > ?", 24.hours.ago]).count %>
-  ,
-    t: "12 hours"
-    a: <%= Song.find(:all, :conditions => ["created_at > ?", 12.hours.ago]).count %>
-  ,
-    t: "6 hours"
-    a: <%= Song.find(:all, :conditions => ["created_at > ?", 24.hours.ago]).count %>
-  ,
-    t: "1 hour"
-    a: <%= Song.find(:all, :conditions => ["created_at > ?", 24.hours.ago]).count %>
-  ]
-  xkey: "t"
-  ykeys: "a"
-  labels: ['Songs Requested']
+$(document).ready ->
+  setInterval (->
+    $(".top_songs").load "/home/reloadtopsongs"
+  ), 3000
+
+$(document).ready ->
+  setInterval (->
+    $(".marquee").load "/home/marquee"
+  ), 3000
+
+$(document).ready ->
+  setInterval (->
+    $(".activity").load "/home/activity"
+  ), 3000

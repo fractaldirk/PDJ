@@ -9,6 +9,8 @@ Party::Application.routes.draw do
 
   resources :paintings
 
+  get "testy" => 'home#testy'
+  get "home/pizza" => 'home#pizza'
   get "home/activity" => 'home#activity'
   get "home/reload" => 'home#reload'
   get "home/reloadlatestsongs" => 'home#reload_latest_songs'

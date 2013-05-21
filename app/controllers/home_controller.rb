@@ -19,6 +19,9 @@ class HomeController < ApplicationController
     render :partial => "latest_songs"
   end
 
+  def pizza
+    render :partial => "home/pizzaa"
+  end
   def reload_top_songs
     @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
     render :partial => "top_requests"

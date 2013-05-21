@@ -1,3 +1,26 @@
+<script type="text/javascript">
+  setInterval(function() {
+    $('.accepted_songs').load('/home/reload');
+  }, 3000);
+
+  setInterval(function() {
+    $('.latest_songs').load('/home/reloadlatestsongs');
+  }, 3000);
+
+  setInterval(function() {
+    $('.top_songs').load('/home/reloadtopsongs');
+  }, 3000);
+
+  setInterval(function() {
+    $('.marquee').load('/home/marquee');
+  }, 3000);
+
+  setInterval(function() {
+    $('.activity').load('/home/activity');
+  }, 3000);
+</script>
+
+
 <body id="dashboard">
   <header class="jumbotron subhead" id="overview">
     <div class="container">
@@ -19,6 +42,9 @@
   <div class="container">
     <div class="row">
       <div class="span4">
+        <div class="pizza">
+          <%= render "pizza" %>
+        </div>
 		    <div class="top_songs">
 		      <%= render "top_requests" %>
 		    </div>
@@ -31,6 +57,7 @@
         <div class="latest_songs">
           <%= render "latest_songs" %>
         </div>
+        <br/>
         <div class="accepted_songs">
           <%= render "accepted_songs" %>
         </div>
