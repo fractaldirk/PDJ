@@ -59,7 +59,7 @@
 	}
 }
 
-.well {
+.wello {
   background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#6d3353), color-stop(50%,#660033), color-stop(100%,#6d3353));
 }
 
@@ -86,4 +86,8 @@
   }
   position: relative;
   top: 80px;
+}
+
+.middlescreen {
+  padding-left: 5px;
 }
