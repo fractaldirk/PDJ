@@ -60,7 +60,7 @@
 }
 
 .well {
-  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#9966CC), color-stop(50%,#660033), color-stop(100%,#9966CC));
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#6d3353), color-stop(50%,#660033), color-stop(100%,#6d3353));
 }
 
 #latest_songs {
