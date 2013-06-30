@@ -1,20 +1,18 @@
 <div id="latest_songs">
-  <div class="mytable" style="width:340px;">
-    <table>
-	    <tr>
-		    <td>
-			    Latest requests
-		    </td>
-	    </tr>
   <% @latest_songs.each do |song| %>
-    <% unless song.status == 1 %>
-	    <tr>
-		    <td >
-			    <%= song.song_title %>
-		    </td>
-	    </tr>
-    <% end %>
+    <div class="well custom jumbotron">
+      <h1><%= song.name %></h1>
+      <div class="well well-small jumbotron">
+        <h4><%= song.artist %></h4>
+        <p>
+          <a class="btn btn-primary btn-large btn-inverse">
+            New request
+          </a>
+        </p>
+        <p>
+          (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>)
+        </p>
+      </div>
+    </div>
   <% end %>
-    </table>
-  </div>
 </div>

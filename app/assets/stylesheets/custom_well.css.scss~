@@ -1,20 +1,10 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-#loginpic {
-   position:absolute;
-   width:300px;
-   height:300px;
-   z-index:15;
-   top:50%;
-   left:50%;
-   margin:-150px 0 0 -150px;
-   background:white;
+.custom {
+  position: fixed;
+  top: 10%;
 }
 
-#dashboard{
-  background-color: black;
+.btn {
+  text-decoration: none
 }
 
 .jumbotron {
@@ -46,49 +36,4 @@
   left: 0;
   background: url("bs-docs-masthead-pattern.png") repeat center center;
   opacity: .4;
-}
-
-.dashboard {
-  background: url('background2.png') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-	h2 {
-	  color: black;
-	}
-}
-
-.wello {
-  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#6d3353), color-stop(50%,#660033), color-stop(100%,#6d3353));
-}
-
-#latest_songs {
-  background-color: black;
-}
-
-#accepted_songs {
-  background-color: black;
-}
-
-#top_requests {
-  background-color: black;
-}
-
-#accepted {
-  width: 80%;
-  height: 80%;
-}
-
-#clubname {
-  h1 {
-    color: green;
-  }
-  position: relative;
-  top: 80px;
-}
-
-.middlescreen {
-  padding-left: 5px;
-  padding-right: 5px;
 }

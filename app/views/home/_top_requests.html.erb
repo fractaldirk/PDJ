@@ -1,19 +1,18 @@
 <div id="top_requests">
-  <div class="mytable" style="width:300px;">
-	  <table >
-		  <tr>
-			  <td>
-				  Top 5 Requests
-			  </td>
-		  </tr>
   <% @songs.each do |song| %>
-      <tr>
-        <td>
-        <%= song.song_title %><br/>
-        (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>) - (Req: <%= song.requester %>)
-        </td>
-      </tr>
+    <div class="well custom jumbotron">
+      <h1><%= song.name %></h1>
+      <div class="well well-small jumbotron">
+        <h4><%= song.artist %></h4>
+        <p>
+          <a class="btn btn-primary btn-large btn-inverse">
+            Top request
+          </a>
+        </p>
+        <p>
+          (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>)
+        </p>
+      </div>
+    </div>
   <% end %>
-    </table>
-  </div>
 </div>

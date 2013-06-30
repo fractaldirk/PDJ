@@ -8,22 +8,22 @@ class HomeController < ApplicationController
     end
   end
   def dashboard
-    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99], :limit => "5")
+    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99], :limit => "5").sample(1)
     @accepted_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "3")
     @marquee_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "2")
-    @latest_songs = Song.find_with_reputation(:votes, :all, order: "created_at desc", :limit => "7")
+    @latest_songs = Song.find_with_reputation(:votes, :all, order: "created_at desc", :limit => "7").sample(1)
     @paintings = Painting.find(:all, order: "created_at desc", :limit => "5")
   end
   def reload_latest_songs
-    @latest_songs = Song.find_with_reputation(:votes, :all, order: "created_at desc", :limit => "5")
+    @latest_songs = Song.find_with_reputation(:votes, :all, order: "created_at desc", :limit => "5").sample(1)
     render :partial => "latest_songs"
   end
 
   def pizza
-    render :partial => "home/pizzaa"
+    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99], :limit => "5").sample(1)
   end
   def reload_top_songs
-    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99], :limit => "5")
+    @songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99], :limit => "5").sample(1)
     render :partial => "top_requests"
   end
   def reload

@@ -1,19 +1,17 @@
 <div id="latest_songs">
   <div class="mytable" style="width:340px;">
-    <table >
+    <table>
 	    <tr>
 		    <td>
 			    Latest requests
 		    </td>
 	    </tr>
   <% @latest_songs.each do |song| %>
-    <% unless song.status == 1 %>
 	    <tr>
 		    <td >
 			    <%= song.song_title %>
 		    </td>
 	    </tr>
-    <% end %>
   <% end %>
     </table>
   </div>
