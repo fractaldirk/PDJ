@@ -22,28 +22,56 @@
 
 
 <body id="dashboard">
+  <%= javascript_include_tag "jquery-1.7.2" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= stylesheet_link_tag "bootstrap" %>
+
+
   <div id="myCarousel" class="carousel slide" data-interval="2000">
-    <% carousel_counter = 1 %>
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <% @songs.each do |s| %>
-          <% carousel_counter += 0 %>
-          <li data-target="#myCarousel" data-slide-to="<%= carousel_counter %>"></li>
-        <% end %>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
     <!-- Carousel items -->
     <div class="carousel-inner">
       <div class="active item">
         <h3>Yolo</h3>
       </div>
-    <% @songs.each do |s| %>
       <div class="item">
-	      <div class="top_songs">
-	        <%= render "top_requests" %>
-	      </div>
+        <br/>
+        <br/>
+        <br/>
+        <hr />
+        <center>
+	        <div class="top_songs">
+	          <%= render "top_requests" %>
+	        </div>
+        </center>
       </div>
-    <% end %>
+      <div class="item">
+        <br/>
+        <br/>
+        <br/>
+        <hr />
+        <center>
+	        <div class="top_songs">
+	          <%= render "latest_songs" %>
+	        </div>
+        </center>
+      </div>
+      <div class="item">
+        <br/>
+        <br/>
+        <br/>
+        <hr />
+        <center>
+	        <div class="top_songs">
+	          <%= render "accepted_songs" %>
+	        </div>
+        </center>
+      </div>
     </div>
   </div>
-
-</body>
+</body>   

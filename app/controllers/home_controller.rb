@@ -15,7 +15,7 @@ class HomeController < ApplicationController
     @paintings = Painting.find(:all, order: "created_at desc", :limit => "5")
   end
   def reload_latest_songs
-    @latest_songs = Song.find_with_reputation(:votes, :all, order: "created_at desc", :limit => "7")
+    @latest_songs = Song.find_with_reputation(:votes, :all, order: "created_at desc", :limit => "5")
     render :partial => "latest_songs"
   end
 
