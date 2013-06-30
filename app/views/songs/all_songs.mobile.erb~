@@ -1,0 +1,31 @@
+<!-- Home -->
+<div id="fb-root"></div>
+
+<div data-role="page" id="page1">
+    <div data-theme="b" data-role="header" data-position="fixed">
+          <%= link_to 'New Request', new_song_path, :class => "ui-btn-right", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "left" %>
+          <%= link_to 'Back', songs_path, :class => "ui-btn-left", "data-role" => "button" %>
+        <h3>
+          <center>
+            <em>Le requests</em>
+          </center>
+        </h3>
+    </div>
+  <% @all_songs.each do |song| %>
+    <% unless song.status == 1 %>
+      <% unless ((song.inactive == true) && (song.reputation_for(:votes).to_i <= 2)) %>
+          <div data-theme="a" data-role="header">
+            <% if current_user && !current_user.voted_for?(song) %>
+              <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
+            <% end %>
+              <h4>
+                  (<%= song.reputation_for(:votes).to_i %>) <%= link_to truncate(song.song_title, :length => 30), song, "data-transition" => "slide" %>
+              </h4>
+          </div>
+      <% end %>
+    <% end %>
+  <% end %>
+    <div data-theme="b" data-role="footer" data-position="fixed">
+        <h3>Inactive requests are filtered out</div></h3>
+    </div>
+</div>

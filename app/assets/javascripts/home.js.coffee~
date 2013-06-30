@@ -3,27 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
-$(document).ready ->
-  setInterval (->
-    $(".accepted_songs").load "/home/reload"
-  ), 3000
+$ ->
 
-$(document).ready ->
-  setInterval (->
-    $(".latest_songs").load "/home/reloadlatestsongs"
-  ), 3000
-
-$(document).ready ->
-  setInterval (->
-    $(".top_songs").load "/home/reloadtopsongs"
-  ), 3000
-
-$(document).ready ->
-  setInterval (->
-    $(".marquee").load "/home/marquee"
-  ), 3000
-
-$(document).ready ->
-  setInterval (->
-    $(".activity").load "/home/activity"
-  ), 3000
+  $(".carousel").carousel().effect("fade")

@@ -3,7 +3,11 @@ class SongsController < ApplicationController
   :update]
 
   def index
-    @top_songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
+    @top_songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99], :limit => "5")
+  end
+
+  def all_songs
+    @top_songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99])
   end
 
   def vote
@@ -83,12 +87,12 @@ class SongsController < ApplicationController
       if params[:song_status]
         if current_user
           @song.update_attributes(params[:song])
-            @user.update_attribute(:score, += #{@song.points.to_i})
+            @user.update_attribute(:score, @user.score + @song.points)
             Painting.delay.create(promotion: false, song_name: @song.name)
             WallPost.delay.accepted(@song)
         else
           @song.update_attributes(params[:song])
-          @user.update_attribute(:score, += @song.points)
+          @user.update_attribute(:score, @user.score + @song.points)
         end
         redirect_to songs_gettrack_path(@songs)
       elsif params[:new_song]

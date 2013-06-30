@@ -3,7 +3,11 @@ class SongsController < ApplicationController
   :update]
 
   def index
-    @top_songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
+    @top_songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99], :limit => "5")
+  end
+
+  def all_songs
+    @all_songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99])
   end
 
   def vote

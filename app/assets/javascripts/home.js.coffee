@@ -3,11 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
-jQuery ->
+$ ->
 
-  Morris.Line
-    element: 'songs_chart'
-    data: $('#songs_chart').data('songs')
-    xkey: ['created_at']
-    ykeys: ['id']
-    labels: ['Points']
+  $(".carousel").carousel()

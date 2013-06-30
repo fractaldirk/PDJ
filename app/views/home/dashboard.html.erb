@@ -22,44 +22,32 @@
 
 
 <body id="dashboard">
-  <header class="jumbotron subhead" id="overview">
-    <div class="container">
-      <h1>Luxor Live</h1>
-      <p class="lead">Personal DJ, request, list and share your songs. </p>
-    </div>
-  </header>
+  <%= javascript_include_tag "jquery-1.7.2" %>
+  <%= javascript_include_tag "bootstrap" %>
+  <%= stylesheet_link_tag "bootstrap" %>
 
-  <div class="well wello">
-    <font size="4" face="Comic Sans MS" color="black">
-    <marquee style="font-weight: bold; color: white;" height="85%" scrolldelay ="100"  scrollamount= "5" loop="infinite">
-      <div class="marquee">
-        <%= render "marquee" %>
-      </div>
-    </marquee>
-    </font>
-  </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="span4">
-		    <div class="top_songs">
-		      <%= render "top_requests" %>
-		    </div>
+  <div id="myCarousel" class="carousel slide" data-interval="2000">
+    <% carousel_counter = 1 %>
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <% @songs.each do |s| %>
+          <% carousel_counter += 0 %>
+          <li data-target="#myCarousel" data-slide-to="<%= carousel_counter %>"></li>
+        <% end %>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      <div class="active item">
+        <h3>Yolo</h3>
       </div>
-      <div class="span3 middlescreen">
-        <h2>About Us</h2>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <% @songs.each do |s| %>
+      <div class="item">
+	      <div class="top_songs">
+	        <%= render "top_requests" %>
+	      </div>
       </div>
-      <div class="span4">
-        <div class="latest_songs">
-          <%= render "latest_songs" %>
-        </div>
-        <br/>
-        <div class="accepted_songs">
-          <%= render "accepted_songs" %>
-        </div>
-      </div>
+    <% end %>
     </div>
   </div>
-
 </body>   

@@ -35,6 +35,7 @@ Party::Application.routes.draw do
   get 'songs/gettrackyy' => 'songs#gettrackyy'
   get 'songs/tracklist' => 'songs#tracklist'
   get 'songs/add' => 'songs#add'
+  get 'songs/all_songs' => 'songs#all_songs'
   resources :songs do
     member { post :vote }
     member { get :promote }

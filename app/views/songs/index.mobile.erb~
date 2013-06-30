@@ -16,19 +16,21 @@
         </h3>
     </div>
   <% @top_songs.each do |song| %>
-    <% unless song.status == 1 %>
-      <% unless ((song.inactive == true) && (song.reputation_for(:votes).to_i <= 2)) %>
-          <div data-theme="a" data-role="header">
-            <% if current_user && !current_user.voted_for?(song) %>
-              <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
-            <% end %>
-              <h4>
-                  (<%= song.reputation_for(:votes).to_i %>) <%= link_to truncate(song.song_title, :length => 30), song, "data-transition" => "slide" %>
-              </h4>
-          </div>
+    <div data-theme="a" data-role="header">
+      <% if current_user && !current_user.voted_for?(song) %>
+        <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
       <% end %>
-    <% end %>
+        <h4>
+            (<%= song.reputation_for(:votes).to_i %>) <%= link_to truncate(song.song_title, :length => 30), song, "data-transition" => "slide" %>
+        </h4>
+    </div>
   <% end %>
+    <div data-theme="a" data-role="header">
+          <%= link_to 'All songs', songs_all_songs_path, :class => "ui-btn-right", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "right" %>
+        <h3>
+          View all songs
+        </h3>
+    </div>
     <div data-theme="b" data-role="footer" data-position="fixed">
         <a href="/home/about/" data-transition="slide" class="ui-btn-right">
             Find out more

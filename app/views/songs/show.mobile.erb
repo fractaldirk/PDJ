@@ -20,17 +20,29 @@
           <div data-role="fieldcontain">
               <fieldset data-role="controlgroup">
                   <label for="textarea1">
-                      Song
+                      Title:
                   </label>
                   <p>
-                  <%= @song.song_title %>
+                  <%= @song.name %>
                   </p>
               </fieldset>
+              <hr />
           </div>
           <div data-role="fieldcontain">
               <fieldset data-role="controlgroup">
                   <label for="textarea2">
-                      Requested by
+                      Artist:
+                  </label>
+                  <p>
+                    <%= @song.artist %>
+                  </p>
+              </fieldset>
+              <hr />
+          </div>
+          <div data-role="fieldcontain">
+              <fieldset data-role="controlgroup">
+                  <label for="textarea2">
+                      Requested by:
                   </label>
                   <p>
                     <%= @song.requester %>
