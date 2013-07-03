@@ -1,4 +1,7 @@
 <!-- Home -->
+<%= stylesheet_link_tag "mobile" %>
+<%= javascript_include_tag "mobile" %>
+
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -12,7 +15,7 @@
     <div data-theme="b" data-role="header" data-position="fixed">
           <%= link_to 'New Request', new_song_path, :class => "ui-btn-right", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "left" %>
         <h3>
-          <em>Jukebox</em>
+          <em>Le Jukebox</em>
         </h3>
     </div>
   <% @top_songs.each do |song| %>
