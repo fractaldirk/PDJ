@@ -1,6 +1,4 @@
 <div id="top_requests">
-  <%= stylesheet_link_tag "custom_well" %>
-
   <% @songs.each do |song| %>
     <div class="well custom jumbotron">
       <h1><%= song.name %></h1>

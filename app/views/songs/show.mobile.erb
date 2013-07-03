@@ -9,7 +9,7 @@
   <div data-role="page" id="page2">
       <div data-theme="a" data-role="header">
           <%= link_to 'Back', songs_path, :class => "ui-btn-left", "data-role" => "button" %>
-          <%= link_to 'Promote', promote_song_path, :class => "ui-btn-right", "data-role" => "button" %>
+          <%= link_to 'Promote', new_promotion_song_path(@song), :class => "ui-btn-right", "data-role" => "button" %>
           <h3>
               <center>
                 Details

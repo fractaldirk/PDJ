@@ -1,0 +1,33 @@
+<%= form_for(@promotion) do |f| %>
+  <% if @promotion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@promotion.errors.count, "error") %> prohibited this promotion from being saved:</h2>
+
+      <ul>
+      <% @promotion.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="hidden">
+    <%= f.hidden_field :name, :value => @song.name %>
+    <%= f.hidden_field :artist, :value => @song.artist %>
+    <%= f.hidden_field :promoter, :value => current_user.name %>
+    <%= f.hidden_field :indicator, :value => @song.id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :message, "Why do we need to vote for this sh*t? Give me a reason.." %><br />
+    <%= f.text_area :message %>
+  </div>
+
+  <div class="hidden">
+    <%= f.label :wall_post, "Be a hero! Promote this song on Facebook (appears in activity feed)" %><br />
+    <%= f.select(:wall_post, [[ "Yes", true ], [ "No", false]])  %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

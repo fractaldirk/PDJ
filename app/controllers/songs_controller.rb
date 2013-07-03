@@ -39,6 +39,10 @@ class SongsController < ApplicationController
 
   def promote
     @song = Song.find(params[:id])
+  end
+
+  def promote_passe
+    @song = Song.find(params[:id])
       if current_user
         User.delay.promote_request(current_user.id, song_url(@song))
         WallPost.delay.title(@song)
@@ -48,6 +52,11 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+  end
+
+  def new_promotion
+    @song = Song.find(params[:id])
+    @promotion = Promotion.new
   end
 
   def add

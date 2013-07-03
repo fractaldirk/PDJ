@@ -8,6 +8,10 @@
   }, 4000);
 
   setInterval(function() {
+    $('.latest_promotions').load('/home/reloadlatestpromotions');
+  }, 4000);
+
+  setInterval(function() {
     $('.top_songs').load('/home/reloadtopsongs');
   }, 4000);
 
@@ -37,7 +41,15 @@
     <!-- Carousel items -->
     <div class="carousel-inner">
       <div class="active item">
-        <h3>Yolo</h3>
+        <br/>
+        <br/>
+        <br/>
+        <hr />
+        <center>
+	        <div class="latest_promotions">
+	          <%= render "latest_promotions" %>
+	        </div>
+        </center>
       </div>
       <div class="item">
         <br/>

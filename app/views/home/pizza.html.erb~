@@ -1,17 +1,18 @@
 <%= stylesheet_link_tag "custom_well" %>
 
-<% @accepted_songs.each do |song| %>
-  <div class="well custom jumbotron">
-    <h1><%= song.name %></h1>
+<% @latest_promotions.each do |p| %>
+  <div class="well custom jumbotron2">
+    <p>by</p>
+    <h1><%= p.name %></h1>
     <div class="well well-small jumbotron">
-      <h4><%= song.artist %></h4>
+      <h4><%= p.artist %></h4>
       <p>
-        <a class="btn btn-primary btn-large btn-inverse">
-          Succesfull
+        <a class="btn btn-primary btn-large btn-danger">
+          Promotion
         </a>
       </p>
       <p>
-        (<%= pluralize song.reputation_for(:votes).to_i, "vote" %>)
+        <h2><em>"<%= p.message %>"</em></h2>
       </p>
     </div>
   </div>

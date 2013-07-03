@@ -7,7 +7,7 @@ class SongsController < ApplicationController
   end
 
   def all_songs
-    @top_songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99])
+    @all_songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99])
   end
 
   def vote
@@ -48,6 +48,11 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+  end
+
+  def new_promotion
+    @song = Song.find(params[:id])
+    @promotion = Promotion.new
   end
 
   def add
