@@ -17,7 +17,7 @@ Party::Application.routes.draw do
   get "home/reload" => 'home#reload'
   get "home/reloadlatestsongs" => 'home#reload_latest_songs'
   get "home/reloadtopsongs" => 'home#reload_top_songs'
-  get "home/reloadlatestpromotions" => 'home#reload_latest_promotions'
+  get "home/reloadlatestpromotions" => 'home#reload_promotions'
   get "home/marquee" => 'home#marquee'
   get "home/index"
   get "dj" => 'home#dj'
