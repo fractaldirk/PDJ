@@ -9,19 +9,19 @@ class HomeController < ApplicationController
   end
   def dashboard
     @songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99], :limit => "5").sample(1)
-    @accepted_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "3")
+    @accepted_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "3").sample(1)
     @marquee_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "2")
     @latest_songs = Song.find_with_reputation(:votes, :all, order: "created_at desc", :limit => "7").sample(1)
     @paintings = Painting.find(:all, order: "created_at desc", :limit => "5")
-    @latest_promotions = Promotion.find(:all, order: "created_at desc").sample(1)
+    @latest_promotions = Promotion.find(:all, order: "created_at desc", :limit => "5").sample(1)
   end
   def reload_latest_songs
     @latest_songs = Song.find_with_reputation(:votes, :all, order: "created_at desc", :limit => "5").sample(1)
     render :partial => "latest_songs"
   end
 
-  def reload_latest_promotions
-    @latest_promotions = Promotion.find(:all, order: "created_at desc").sample(1)
+  def reload_promotions
+    @latest_promotions = Promotion.find(:all, order: "created_at desc", :limit => "5").sample(1)
     render :partial => "latest_promotions"
   end
 
@@ -35,7 +35,7 @@ class HomeController < ApplicationController
     render :partial => "top_requests"
   end
   def reload
-    @accepted_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "3")
+    @accepted_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "3").sample(1)
     render :partial => "accepted_songs"
   end
   def marquee

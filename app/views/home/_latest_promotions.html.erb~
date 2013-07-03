@@ -1,17 +1,19 @@
-<% @latest_promotions.each do |p| %>
-  <div class="well custom jumbotron2">
-    <h1><%= p.name %></h1>
-    <div class="well well-small jumbotron">
-      <p>by</p>
-      <h4><%= p.artist %></h4>
-      <p>
-        <a class="btn btn-primary btn-large btn-danger">
-          Promotion
-        </a>
-      </p>
-      <p>
-        <h2><em>"<%= p.message %>"</em></h2>
-      </p>
+<div id="latest_promotions">
+  <% @latest_promotions.each do |p| %>
+    <div class="well custom jumbotron2">
+      <h1><%= p.name %></h1>
+      <div class="well well-small jumbotron">
+        <p>by</p>
+        <h4><%= p.artist %></h4>
+        <p>
+          <a class="btn btn-primary btn-large btn-danger">
+            Promotion
+          </a>
+        </p>
+        <p>
+          <h2><em>"<%= p.message %>"</em></h2>
+        </p>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

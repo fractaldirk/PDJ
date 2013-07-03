@@ -8,7 +8,7 @@
   }, 4000);
 
   setInterval(function() {
-    $('.latest_promotions').load('/home/reloadlatestpromotions');
+    $('.promotions').load('/home/reloadlatestpromotions');
   }, 4000);
 
   setInterval(function() {
@@ -46,7 +46,7 @@
         <br/>
         <hr />
         <center>
-	        <div class="latest_promotions">
+	        <div class="promotions">
 	          <%= render "latest_promotions" %>
 	        </div>
         </center>

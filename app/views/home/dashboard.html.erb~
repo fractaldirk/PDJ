@@ -41,7 +41,15 @@
     <!-- Carousel items -->
     <div class="carousel-inner">
       <div class="active item">
-        <h3>Yolo</h3>
+        <br/>
+        <br/>
+        <br/>
+        <hr />
+        <center>
+	        <div class="promotions">
+	          <%= render "latest_promotions" %>
+	        </div>
+        </center>
       </div>
       <div class="item">
         <br/>
