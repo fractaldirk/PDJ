@@ -11,7 +11,7 @@ Party::Application.configure do
   # Disable Rails's static asset server (Apache or nginx will already do this)
   config.serve_static_assets = false
 
-  config.assets.precompile += %w( mobile.css jquery.mobile-1.2.0.min.css)
+  config.assets.precompile += %w( mobile.css jquery.mobile-1.2.0.min.css jquery.mobile-1.2.0.js jquery-1.7.2.js mobile.js mobile.js bootstrap.css custom_well.css.scss)
   # Compress JavaScripts and CSS
   config.assets.compress = true
 
