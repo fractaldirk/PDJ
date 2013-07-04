@@ -1,4 +1,6 @@
 <!-- Home -->
+<%= stylesheet_link_tag "mobile" %>
+<%= javascript_include_tag "mobile" %>
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
