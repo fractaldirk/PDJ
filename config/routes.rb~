@@ -39,12 +39,14 @@ Party::Application.routes.draw do
   get 'songs/tracklist' => 'songs#tracklist'
   get 'songs/add' => 'songs#add'
   get 'songs/all_songs' => 'songs#all_songs'
+  match '/songs' => 'songs#index', :via => :post
   resources :songs do
     member { post :vote }
     member { get :promote }
     member { get :edit_gettrack }
     member { get :new_promotion }
   end
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

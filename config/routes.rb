@@ -39,7 +39,7 @@ Party::Application.routes.draw do
   get 'songs/tracklist' => 'songs#tracklist'
   get 'songs/add' => 'songs#add'
   get 'songs/all_songs' => 'songs#all_songs'
-  match '/songs' => 'songs#index', :via => :post
+
   resources :songs do
     member { post :vote }
     member { get :promote }
