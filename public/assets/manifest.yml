@@ -19,9 +19,6 @@ pizza.jpg: pizza-ebd004752e9235652dd953584af5870f.jpg
 rails.png: rails-be8732dac73d845ac5b142c8fb5f9fb0.png
 active_admin.js: active_admin-2b5a803d92190d9a0ee4ebe394f09e4b.js
 application.js: application-70e971c396b7d3b8ea4db99500ec6771.js
-jquery-1.7.2.js: jquery-1.7.2-765cc76e15d62a88cd61468aeaaaeb5d.js
-jquery.mobile-1.2.0.js: jquery.mobile-1.2.0-1c7016aba9595a876d08bc75d5045692.js
-mobile.js: mobile-2024adf7c39d806b92a5e5a9225a531e.js
 demos/css/themes/default/images/ajax-loader.gif: demos/css/themes/default/images/ajax-loader-a1e3ed2d0f3fb90ba37c0f8dd8997c8b.gif
 demos/css/themes/default/images/icons-18-black.png: demos/css/themes/default/images/icons-18-black-17894997419b6088e69c68de8d7c79ae.png
 demos/css/themes/default/images/icons-18-white.png: demos/css/themes/default/images/icons-18-white-8b67384de3a8215f61ccdf024b9d4d34.png
@@ -268,11 +265,8 @@ images/icons-18-black.png: images/icons-18-black-17894997419b6088e69c68de8d7c79a
 images/icons-18-white.png: images/icons-18-white-8b67384de3a8215f61ccdf024b9d4d34.png
 images/icons-36-black.png: images/icons-36-black-d69bcf650f6ceff72fb95e312c4470f5.png
 images/icons-36-white.png: images/icons-36-white-5c37de3e25df5d99d43d224f10dfc02f.png
-jquery.mobile-1.2.0.min.css: jquery.mobile-1.2.0.min-967382d403a61cd12cbb523144b63de5.css
 active_admin.css: active_admin-f14ad7b0892554d36ce96bc806f3b13a.css
 application.css: application-5411d3005162c16106de8c3e13f25ea0.css
-bootstrap.css: bootstrap-5a67a2a55c9d12288acae2e997cbabb8.css
-mobile.css: mobile-1ca51ee04e3cc61963603ab30a4f0e83.css
 active_admin/admin_notes_icon.png: active_admin/admin_notes_icon-04bd616ed9d1ff51d7a53422d4caf510.png
 active_admin/datepicker/datepicker-header-bg.png: active_admin/datepicker/datepicker-header-bg-5f452fde9ca93c1fe7e9d47f0a3ece6a.png
 active_admin/datepicker/datepicker-input-icon.png: active_admin/datepicker/datepicker-input-icon-876ae70b38bc880f91ce2315ed552260.png
