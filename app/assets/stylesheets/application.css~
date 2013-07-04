@@ -11,11 +11,3 @@
  *= require_self
  *= require_tree .
  */
-
-.dashboard {
-  background-image:url('background.jpg');
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
