@@ -1,5 +1,5 @@
-desc "populate API list"
-task :populate_lists => :environment do
+desc "populate API pop rock list"
+task :populate_pop_rock => :environment do
   require 'open-uri'
   require 'json'
 

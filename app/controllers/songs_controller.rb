@@ -4,6 +4,7 @@ class SongsController < ApplicationController
 
   def index
     @top_songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99], :limit => "5")
+    @lists = List.find(:all)
   end
 
   def all_songs
@@ -15,19 +16,22 @@ class SongsController < ApplicationController
     value = params[:type] == "up" ? 1 : -1
     @song = Song.find(params[:id])
     @song.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to songs_url
+    redirect_to songs_all_songs_path
   end
 
   def gettrack
     redirect_to songs_gettracky_path
+    @lists = List.find(:all)
   end
 
   def gettracky
     @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
+    @lists = List.find(:all)
   end
 
   def gettrackyy
     @songs = Song.find_with_reputation(:votes, :all, order: "votes desc")
+    @lists = List.find(:all)
   end
 
   def tracklist
@@ -36,10 +40,12 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
+    @lists = List.find(:all)
   end
 
   def promote
     @song = Song.find(params[:id])
+    @lists = List.find(:all)
   end
 
   def promote_passe
@@ -71,6 +77,7 @@ class SongsController < ApplicationController
   def edit_gettrack
     @song = Song.find(params[:id])
     @user = User.find(@song.user_id)
+    @lists = List.find(:all)
   end
 
   def create
@@ -104,7 +111,7 @@ class SongsController < ApplicationController
           @song.update_attributes(params[:song])
           @user.update_attribute(:score, @user.score + @song.points)
         end
-        redirect_to songs_gettrack_path(@songs)
+        redirect_to songs_gettracky_path(@songs)
       elsif params[:new_song]
         @song.update_attributes(params[:song])
         redirect_to @song
@@ -130,10 +137,28 @@ class SongsController < ApplicationController
 
   def poprock
     @song = Song.new
-    @lists = List.find(:all, :order => "created_at DESC", :limit => 20)
+    @lists = List.find(:all, :order => "created_at DESC", :conditions => [ "genre = ?", 10 ], :limit => 20)
 
     respond_to do |format|
       format.mobile { render "songs/forms/pop_rock" }
+    end
+  end
+
+  def rock
+    @song = Song.new
+    @lists = List.find(:all, :order => "created_at DESC", :conditions => [ "genre = ?", 2 ], :limit => 20)
+
+    respond_to do |format|
+      format.mobile { render "songs/forms/rock" }
+    end
+  end
+
+  def indie
+    @song = Song.new
+    @lists = List.find(:all, :order => "created_at DESC", :conditions => [ "genre = ?", 9 ], :limit => 20)
+
+    respond_to do |format|
+      format.mobile { render "songs/forms/indie" }
     end
   end
 

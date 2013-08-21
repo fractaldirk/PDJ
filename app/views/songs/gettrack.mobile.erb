@@ -9,6 +9,8 @@
         </h3>
     </div>
   <% @songs.each do |song| %>
+    <% @lists.each do |l| %>
+    <% if l.id == song.name.to_i %>
     <% unless song.status == 1 %>
       <% unless ((song.inactive == true) && (song.reputation_for(:votes).to_i <= 2)) %>
         <div data-theme="a" data-role="header">
@@ -16,11 +18,13 @@
             <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' }, :class => "ui-btn-right", "data-role" => "button" %>
             <h4>
               <center>
-                (<%= song.reputation_for(:votes).to_i %>) <%= song.name %>
+                (<%= song.reputation_for(:votes).to_i %>) <%= l.song_title %>
               </center>
             </h4>
         </div>
       <% end %>
+    <% end %>
+    <% end %>
     <% end %>
   <% end %>
     <div data-theme="a" data-role="footer" data-position="fixed">

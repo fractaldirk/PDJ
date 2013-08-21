@@ -1,9 +1,9 @@
-desc "populate API list"
-task :populate_lists => :environment do
+desc "populate API rock list"
+task :populate_rock => :environment do
   require 'open-uri'
   require 'json'
 
-  result = JSON.parse(open("http://personaldjhome.herokuapp.com/lists/pop-rock.json").read)
+  result = JSON.parse(open("http://personaldjhome.herokuapp.com/lists/indie.json").read)
 
   a = result[0]
   @title_1 = a["title"]
@@ -106,7 +106,7 @@ task :populate_lists => :environment do
   @id_20 = t["id"]
 
   #genre is predefined
-  @genre = 10
+  @genre = 9
 
   List.create(title: @title_20, artist: @artist_20, list_id: @id_20, genre: @genre)
   List.create(title: @title_19, artist: @artist_19, list_id: @id_19, genre: @genre)

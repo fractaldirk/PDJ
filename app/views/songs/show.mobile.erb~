@@ -3,12 +3,12 @@
   <%= tag :meta, property: "og:type", content: "personaldj:liedje" %>
   <%= tag :meta, property: "og:url", content: song_url(@song) %>
   <%= tag :meta, property: "og:title", content: @song.song_title %>
-
+  <%= tag :meta, property: "og:image", content: "http://personaldj2.herokuapp.com/assets/personaldj.png" %>
 <% end %>
 <!-- Home -->
   <div data-role="page" id="page2">
       <div data-theme="a" data-role="header">
-          <%= link_to 'Back', songs_path, :class => "ui-btn-left", "data-role" => "button" %>
+          <%= link_to 'Back', songs_all_songs_path, :class => "ui-btn-left", "data-role" => "button" %>
           <%= link_to 'Promote', new_promotion_song_path(@song), :class => "ui-btn-right", "data-role" => "button" %>
           <h3>
               <center>
@@ -16,38 +16,33 @@
               </center>
           </h3>
       </div>
+  <% @lists.each do |l| %>
+    <% if l.id == @song.name.to_i %>
       <div data-role="content">
           <div data-role="fieldcontain">
               <fieldset data-role="controlgroup">
-                  <label for="textarea1">
-                      Title:
-                  </label>
                   <p>
-                  <%= @song.name %>
+                    <strong>Title:</strong> <%= l.title %>
                   </p>
               </fieldset>
               <hr />
           </div>
           <div data-role="fieldcontain">
               <fieldset data-role="controlgroup">
-                  <label for="textarea2">
-                      Artist:
-                  </label>
                   <p>
-                    <%= @song.artist %>
+                    <strong>Artist: </strong><%= l.artist %>
                   </p>
               </fieldset>
               <hr />
           </div>
           <div data-role="fieldcontain">
               <fieldset data-role="controlgroup">
-                  <label for="textarea2">
-                      Requested by:
-                  </label>
                   <p>
-                    <%= @song.requester %>
+                    Requested by: <%= @song.requester %>
                   </p>
               </fieldset>
           </div>
       </div>
+    <% end %>
+  <% end %>
   </div>

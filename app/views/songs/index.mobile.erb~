@@ -11,12 +11,14 @@
 
 <div data-role="page" id="page1">
     <div data-theme="b" data-role="header" data-position="fixed">
-          <%= link_to 'New Request', lists_path, :class => "ui-btn-right", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "left" %>
+          <%= link_to 'New Request', songs_playlists_path, :class => "ui-btn-right", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "left" %>
         <h3>
           <em>Le Jukebox</em>
         </h3>
     </div>
   <% @top_songs.each do |song| %>
+    <% @lists.each do |l| %>
+    <% if l.id == song.name.to_i %>
     <div data-theme="a" data-role="header">
       <% if current_user && !current_user.voted_for?(song) %>
         <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
@@ -25,6 +27,8 @@
             (<%= song.reputation_for(:votes).to_i %>) <%= link_to truncate(song.song_title, :length => 30), song, "data-transition" => "slide" %>
         </h4>
     </div>
+    <% end %>
+    <% end %>
   <% end %>
     <div data-theme="a" data-role="header">
           <%= link_to 'All songs', songs_all_songs_path, :class => "ui-btn-right", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "right" %>

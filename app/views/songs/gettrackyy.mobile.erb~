@@ -1,0 +1,35 @@
+<!-- Gettrack -->
+<div data-role="page" id="page11">
+    <div data-theme="b" data-role="header">
+        <%= link_to 'Refresh', songs_gettrack_path , :class => "ui-btn-left", "data-role" => "button" %>
+        <h3>
+          <center>
+            Manage songs
+          </center>
+        </h3>
+    </div>
+  <% @songs.each do |song| %>
+    <% if l.id == song.name.to_i %>
+    <% unless song.status == 1 %>
+    <% unless song.status == 1 %>
+      <% unless ((song.inactive == true) && (song.reputation_for(:votes).to_i <= 2)) %>
+        <div data-theme="a" data-role="header">
+            <%= link_to 'Approve', edit_gettrack_song_path(song), :class => "ui-btn-left", "data-role" => "button" %>
+            <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' }, :class => "ui-btn-right", "data-role" => "button" %>
+            <h4>
+              <center>
+                (<%= song.reputation_for(:votes).to_i %>) <%= l.song_title %>
+              </center>
+            </h4>
+        </div>
+      <% end %>
+    <% end %>
+    <% end %>
+    <% end %>
+  <% end %>
+    <div data-theme="a" data-role="footer" data-position="fixed">
+        <h3>
+            This is an IceFlag production
+        </h3>
+    </div>
+</div>

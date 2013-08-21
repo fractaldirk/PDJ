@@ -1,0 +1,49 @@
+<%= form_for(@song) do |f| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+      <ul>
+      <% @song.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div data-theme="b" data-role="header">
+    <h3>
+      <%= link_to 'Back', songs_playlists_path, :class => "ui-btn-left", "data-role" => "button" %>
+      <center>
+        Request Rock Song
+      </center>
+    </h3>
+  </div>
+
+  <div data-theme="a" data-role="header">
+    <div class="field">
+      <em>Song title:</em>
+      <%= f.collection_select :name, @lists, :id, :song_title, prompt: true %>
+    </div>
+  </div>
+    <div class="hidden_field">
+      <%= f.hidden_field :requester, :value => current_user.name %>
+      <%= f.hidden_field :user_fb, :value => current_user.uid %>
+      <%= f.hidden_field :user_name, :value => current_user.username %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :status, :value => 99 %>
+    </div>
+
+  <div data-theme="a" data-role="header">
+    <div class="field">
+      <em>Artist:</em>
+      <%= f.text_field :artist %>
+    </div>
+  </div>
+
+  <div data-theme="d" data-role="header">
+    <div class="actions">
+      <%= f.submit "Share :)", :name => "request_song" %>
+    </div>
+  </div>
+<% end %>

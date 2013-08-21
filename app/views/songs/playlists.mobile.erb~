@@ -1,0 +1,33 @@
+<!-- About -->
+<div data-role="page" id="page56">
+    <div data-theme="b" data-role="header">
+        <%= link_to 'Back', songs_path, "data-role" => "button", :class => "ui-btn-left" %>
+        <h3>
+            <center>
+                Available music lists
+            </center>
+        </h3>
+    </div>
+    <div data-role="content">
+        <ul data-role="listview" data-divider-theme="b" data-inset="true">
+            <li data-theme="c">
+                <%= link_to 'Pop/rock', controller: "songs", action: "poprock", "data-transition" => "slide" %>
+            </li>
+            <li data-theme="c">
+                <a href="/home/terms/" data-transition="slide">
+                    Terms of Use
+                </a>
+            </li>
+            <li data-theme="c">
+                <a href="#page1" data-transition="slide">
+                    About (Club Name)
+                </a>
+            </li>
+            <li data-theme="c">
+                <a href="/home/support/" data-transition="slide">
+                    About Personal DJ
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -19,17 +19,20 @@
       </h3>
   </div>
 
-  <div data-theme="a" data-role="header">
-
-    <h4><center><%= @song.song_title %></center></h4>
-    <div class="hidden_field">
-      <%= f.hidden_field :points, :value => @song.reputation_for(:votes).to_i %>
-      <%= f.hidden_field :status, :value => '1' %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Approve song", :name => "song_status", :class => "ui-btn-right", "data-role" => "button" %>
-      <%= link_to 'Back', songs_gettrack_path, :class => "ui-btn-left", "data-role" => "button" %>
+  <% @lists.each do |l| %>
+  <% if l.id == @song.name.to_i %>
+    <div data-theme="a" data-role="header">
+      <h4><center><%= l.song_title %></center></h4>
+      <div class="hidden_field">
+        <%= f.hidden_field :points, :value => @song.reputation_for(:votes).to_i %>
+        <%= f.hidden_field :status, :value => '1' %>
+      </div>
+      <div class="actions">
+        <%= f.submit "Approve song", :name => "song_status", :class => "ui-btn-right", "data-role" => "button" %>
+        <%= link_to 'Back', songs_gettrack_path, :class => "ui-btn-left", "data-role" => "button" %>
+      </div>
     </div>
   <% end %>
+  <% end %>
 
-  </div>
+<% end %>

@@ -47,28 +47,35 @@
 
                 </h3>
             </div>
+        <% @lists.each do |l| %>
+          <% if l.id == @song.name.to_i %>
             <div data-role="content">
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
-                        <label for="textarea1">
-                            Song
-                        </label>
                         <p>
-                        <%= @song.name %>
+                          <strong>Title:</strong> <%= l.title %>
                         </p>
                     </fieldset>
+                    <hr />
                 </div>
                 <div data-role="fieldcontain">
                     <fieldset data-role="controlgroup">
-                        <label for="textarea2">
-                            Requested by
-                        </label>
                         <p>
-                          <%= @song.requester %>
+                          <strong>Artist: </strong><%= l.artist %>
+                        </p>
+                    </fieldset>
+                    <hr />
+                </div>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <p>
+                          <strong>Requested by:</strong> <%= @song.requester %>
                         </p>
                     </fieldset>
                 </div>
             </div>
+          <% end %>
+        <% end %>
         </div>
     </body>
 </html>

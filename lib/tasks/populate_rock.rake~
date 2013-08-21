@@ -1,9 +1,9 @@
-desc "populate API list"
-task :populate_lists => :environment do
+desc "populate API rock list"
+task :populate_rock => :environment do
   require 'open-uri'
   require 'json'
 
-  result = JSON.parse(open("http://personaldjhome.herokuapp.com/lists/pop-rock.json").read)
+  result = JSON.parse(open("http://personaldjhome.herokuapp.com/lists/rock.json").read)
 
   a = result[0]
   @title_1 = a["title"]
