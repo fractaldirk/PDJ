@@ -1,0 +1,3 @@
+class List < ActiveRecord::Base
+  attr_accessible :artist, :list_id, :title
+end

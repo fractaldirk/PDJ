@@ -1,4 +1,5 @@
 Party::Application.routes.draw do
+
   get "admin/statistics"
   get "admin/top_users"
   get "admin/statisticz"
@@ -40,6 +41,12 @@ Party::Application.routes.draw do
   get 'songs/add' => 'songs#add'
   get 'songs/all_songs' => 'songs#all_songs'
 
+  #playlists of songs controller
+  get 'songs/playlists' => 'songs#playlists'
+  get 'songs/pop-rock' => 'songs#poprock'
+  get 'songs/rock' => 'songs#rock'
+  get 'songs/indie' => 'songs#indie'
+
   resources :songs do
     member { post :vote }
     member { get :promote }
@@ -47,6 +54,7 @@ Party::Application.routes.draw do
     member { get :new_promotion }
   end
 
+  resources :lists
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

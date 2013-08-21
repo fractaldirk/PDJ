@@ -39,6 +39,10 @@ class SongsController < ApplicationController
 
   def promote
     @song = Song.find(params[:id])
+  end
+
+  def promote_passe
+    @song = Song.find(params[:id])
       if current_user
         User.delay.promote_request(current_user.id, song_url(@song))
         WallPost.delay.title(@song)
@@ -114,6 +118,21 @@ class SongsController < ApplicationController
       redirect_to songs_gettrack_path(:format => :mobile)
     else
       render action: "gettrack"
+    end
+  end
+
+  # playlists
+
+  def playlists
+
+  end
+
+  def poprock
+    @song = Song.new
+    @lists = List.find(:all, :order => "created_at DESC", :limit => 20)
+
+    respond_to do |format|
+      format.mobile { render "songs/forms/pop_rock" }
     end
   end
 

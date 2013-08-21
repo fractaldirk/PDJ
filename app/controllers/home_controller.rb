@@ -68,7 +68,16 @@ class HomeController < ApplicationController
   end
 
   def testy
+    require 'open-uri'
+    require 'json'
 
+    result = JSON.parse(open("http://personaldjhome.herokuapp.com/lists/pop-rock.json").read)
+    z = result[1]
+    @title = z["title"]
+    @artist = z["artist"]
+    @id = z["id"]
+    # @get_artist = result["artist"]
+    # @get_id = result["id"]
   end
 
 private

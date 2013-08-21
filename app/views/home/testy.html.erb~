@@ -1,11 +1,5 @@
-<script type="text/javascript">
-      setInterval(function() {
-        $('.pizzas').load('/home/pizza');
-      }, 1000);
-</script>
-
-
-
-<div class="pizzas">
-
-</div>
+<%= @title %>
+<br/>
+<%= @artist %>
+<br/>
+<%= @id %>

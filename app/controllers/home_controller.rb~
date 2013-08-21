@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
   def dashboard
     @songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99], :limit => "5").sample(1)
-    @accepted_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "3")
+    @accepted_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "3").sample(1)
     @marquee_songs = Song.find(:all, order: "updated_at desc", :conditions => { :status => "1"}, :limit => "2")
     @latest_songs = Song.find_with_reputation(:votes, :all, order: "created_at desc", :limit => "7").sample(1)
     @paintings = Painting.find(:all, order: "created_at desc", :limit => "5")
@@ -68,7 +68,15 @@ class HomeController < ApplicationController
   end
 
   def testy
+    require 'open-uri'
+    require 'json'
 
+    result = JSON.parse(open("http://personaldjhome.herokuapp.com/lists/pop-rock.json").read)
+    z = result[1]
+    @title = z["title"]
+    @artist = z["artist"]
+    # @get_artist = result["artist"]
+    # @get_id = result["id"]
   end
 
 private

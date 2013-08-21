@@ -8,6 +8,7 @@ class SongsController < ApplicationController
 
   def all_songs
     @all_songs = Song.find_with_reputation(:votes, :all, order: "votes desc", :conditions => ["status = ?", 99])
+    @lists = List.find(:all)
   end
 
   def vote
@@ -118,6 +119,21 @@ class SongsController < ApplicationController
       redirect_to songs_gettrack_path(:format => :mobile)
     else
       render action: "gettrack"
+    end
+  end
+
+  # playlists
+
+  def playlists
+
+  end
+
+  def poprock
+    @song = Song.new
+    @lists = List.find(:all, :order => "created_at DESC", :limit => 20)
+
+    respond_to do |format|
+      format.mobile { render "songs/forms/pop_rock" }
     end
   end
 
