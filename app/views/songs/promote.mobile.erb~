@@ -39,7 +39,7 @@
         <!-- Home -->
         <div data-role="page" id="page1">
             <div data-theme="a" data-role="header">
-                <%= link_to 'Back', songs_path, :class => "ui-btn-left", "data-role" => "button" %>
+                <%= link_to 'Back', songs_all_songs_path, :class => "ui-btn-left", "data-role" => "button" %>
                 <h3>
                     <center>
                       Details

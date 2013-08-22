@@ -129,4 +129,7 @@ task :populate_rock => :environment do
   List.create(title: @title_2, artist: @artist_2, list_id: @id_2, genre: @genre)
   List.create(title: @title_1, artist: @artist_1, list_id: @id_1, genre: @genre)
 
+  #remove duplicates
+  List.dedupe
+
 end

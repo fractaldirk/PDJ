@@ -1,5 +1,5 @@
 desc "populate API pop rock list"
-task :populate_pop_rock_list => :environment do
+task :populate_pop_rock => :environment do
   require 'open-uri'
   require 'json'
 
@@ -128,5 +128,8 @@ task :populate_pop_rock_list => :environment do
   List.create(title: @title_3, artist: @artist_3, list_id: @id_3, genre: @genre)
   List.create(title: @title_2, artist: @artist_2, list_id: @id_2, genre: @genre)
   List.create(title: @title_1, artist: @artist_1, list_id: @id_1, genre: @genre)
+
+  #remove duplicates
+  List.dedupe
 
 end

@@ -18,7 +18,7 @@
             <%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' }, :class => "ui-btn-right", "data-role" => "button" %>
             <h4>
               <center>
-                (<%= song.reputation_for(:votes).to_i %>) <%= song.name %>
+                (<%= song.reputation_for(:votes).to_i %>) <%= l.song_title %>
               </center>
             </h4>
         </div>

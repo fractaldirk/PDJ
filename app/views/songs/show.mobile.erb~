@@ -38,7 +38,7 @@
           <div data-role="fieldcontain">
               <fieldset data-role="controlgroup">
                   <p>
-                    Requested by: <%= @song.requester %>
+                    <strong>Requested by:</strong> <%= @song.requester %>
                   </p>
               </fieldset>
           </div>

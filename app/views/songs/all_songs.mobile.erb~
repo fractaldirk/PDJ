@@ -3,7 +3,7 @@
 
 <div data-role="page" id="page1">
     <div data-theme="b" data-role="header" data-position="fixed">
-          <%= link_to 'New Request', new_song_path, :class => "ui-btn-right", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "left" %>
+          <%= link_to 'New Request', songs_playlists_path, :class => "ui-btn-right", "data-role" => "button", "data-icon" => "arrow-r", "data-iconpos" => "left" %>
           <%= link_to 'Back', songs_path, :class => "ui-btn-left", "data-role" => "button", "data-icon" => "arrow-l", "data-iconpos" => "left" %>
         <h3>
           <center>
@@ -18,9 +18,16 @@
           </center>
         </h3>
     </div>
+    <div data-theme="a">
+        <h3>
+          <% @lists.each do |l| %>
+          <li><%= l.list_id %></li>
+          <% end %>
+        </h3>
+    </div>
   <% @all_songs.each do |song| %>
     <% @lists.each do |l| %>
-    <% if l.id == song.name.to_i %>
+    <% if l.list_id == song.name.to_i %>
     <% unless song.status == 1 %>
       <% unless ((song.inactive == true) && (song.reputation_for(:votes).to_i <= 2)) %>
           <div data-theme="a" data-role="header">
