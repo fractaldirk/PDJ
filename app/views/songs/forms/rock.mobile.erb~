@@ -15,7 +15,7 @@
     <h3>
       <%= link_to 'Back', songs_playlists_path, :class => "ui-btn-left", "data-role" => "button" %>
       <center>
-        New song
+        Request Rock Song
       </center>
     </h3>
   </div>
