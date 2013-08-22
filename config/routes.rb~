@@ -1,5 +1,7 @@
 Party::Application.routes.draw do
 
+  get "api/successful_requests"
+
   get "admin/statistics"
   get "admin/top_users"
   get "admin/statisticz"
@@ -42,7 +44,6 @@ Party::Application.routes.draw do
   get 'songs/all_songs' => 'songs#all_songs'
 
   #playlists of songs controller
-
   get 'songs/playlists' => 'songs#playlists'
   get 'songs/pop-rock' => 'songs#poprock'
   get 'songs/rock' => 'songs#rock'

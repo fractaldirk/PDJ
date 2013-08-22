@@ -1,5 +1,9 @@
 Party::Application.routes.draw do
 
+  # Api output pages
+  get "api/successful_requests"
+  get "api/latest_successful_requests"
+
   get "admin/statistics"
   get "admin/top_users"
   get "admin/statisticz"
