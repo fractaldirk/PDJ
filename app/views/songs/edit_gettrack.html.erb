@@ -20,7 +20,7 @@
   </div>
 
   <% @lists.each do |l| %>
-  <% if l.list_id == @song.name.to_i %>
+  <% if ((l.list_id == @song.name.to_i) && (l.genre == @song.artist.to_i)) %>
     <div data-theme="a" data-role="header">
       <h4><center><%= l.song_title %></center></h4>
       <div class="hidden_field">

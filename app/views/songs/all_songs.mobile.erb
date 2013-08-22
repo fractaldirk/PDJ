@@ -20,7 +20,7 @@
     </div>
   <% @all_songs.each do |song| %>
     <% @lists.each do |l| %>
-    <% if l.list_id == song.name.to_i %>
+    <% if ((l.list_id == song.name.to_i) && (l.genre == song.artist.to_i)) %>
     <% unless song.status == 1 %>
       <% unless ((song.inactive == true) && (song.reputation_for(:votes).to_i <= 2)) %>
           <div data-theme="a" data-role="header">

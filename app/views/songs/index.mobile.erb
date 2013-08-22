@@ -18,7 +18,7 @@
     </div>
   <% @top_songs.each do |song| %>
     <% @lists.each do |l| %>
-    <% if l.list_id == song.name.to_i %>
+    <% if ((l.list_id == song.name.to_i) && (l.genre == song.artist.to_i)) %>
     <div data-theme="a" data-role="header">
       <% if current_user && !current_user.voted_for?(song) %>
         <%= link_to "up", vote_song_path(song, type: "up"), method: "post", "data-role" => "button", :class => "ui-btn-right" %>
