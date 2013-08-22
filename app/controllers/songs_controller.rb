@@ -91,7 +91,7 @@ class SongsController < ApplicationController
           if current_user
             User.delay.share_request(current_user.id, song_url(@song))
           end
-        redirect_to songs_path
+        redirect_to songs_all_songs_path
       else
         render action: "new"
       end

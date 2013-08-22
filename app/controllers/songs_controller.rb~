@@ -137,7 +137,7 @@ class SongsController < ApplicationController
 
   def poprock
     @song = Song.new
-    @lists = List.find(:all, :order => "created_at DESC", :conditions => [ "genre = ?", 10 ])
+    @lists = List.find(:all, :order => "created_at DESC", :conditions => [ "genre = ?", 10 ], :limit => 20)
 
     respond_to do |format|
       format.mobile { render "songs/forms/pop_rock" }
